@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freddy Fazbear's Pizzeria</title>
+    <!-- We laden een gaaf retro pixel-lettertype van Google Fonts -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- De bekende zwart-witte pizzeria rand bovenaan -->
+    <div class="checkerboard"></div>
+
+    <header>
+        <h1>FREDDY FAZBEAR'S PIZZERIA</h1>
+        <p class="tagline">"Where fantasy and fun come to life!"</p>
+    </header>
+
+    <nav>
+        <a href="#home" class="nav-button">Home</a>
+        <a href="#menu" class="nav-button">Ons Menu</a>
+        <a href="#cameras" class="nav-button" id="cam-link">Beveiliging</a>
+    </nav>
+
+    <main>
+        <section id="welcome-box">
+            <h2>Welkom bij de gezelligste familiepizzeria!</h2>
+            <p>Kom langs voor onze heerlijke pizza's en zing gezellig mee met Freddy, Bonnie en Chica! *Let op: de directie is niet verantwoordelijk voor eventuele vermissingen of vreemd gedrag van de animatronics na middernacht.*</p>
+        </section>
+
+        <!-- Een interactieve knop voor een kleine FNaF verrassing -->
+        <button id="secret-button">KLIK NIET OP DEZE KNOP</button>
+        <div id="jumpscare-overlay">IT'S ME</div>
+    </main>
+
+    <!-- De zwart-witte rand onderaan -->
+    <div class="checkerboard" style="margin-top: 50px;"></div>
+
+    <!-- Een klein stukje JavaScript voor een 'Easter Egg' effect -->
+    <script>
+        const btn = document.getElementById('secret-button');
+        const overlay = document.getElementById('jumpscare-overlay');
+        
+        btn.addEventListener('click', () => {
+            overlay.style.display = 'flex';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 1500); // Verdwijnt weer na 1.5 seconde
+        });
+    </script>
+</body>
+</html>
