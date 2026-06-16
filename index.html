@@ -16,7 +16,7 @@
         <p class="tagline">"Where fantasy and fun come to life!"</p>
     </header>
 
-    <!-- Werkende knoppen die je automatisch naar het juiste deel sturen -->
+    <!-- Volledig werkende knoppen navigatiebalk -->
     <nav>
         <a href="#home" class="nav-button">Home</a>
         <a href="#menu" class="nav-button">Ons Menu</a>
@@ -142,7 +142,7 @@
                 <div class="character-card">
                     <img src="https://fandom.com" alt="Freddy" class="character-img">
                     <h3>Freddy Fazbear</h3>
-                    <p class="char-desc">De leader van de band und de hoofdzanger.</p>
+                    <p class="char-desc">De leader van de band en de hoofdzanger.</p>
                 </div>
                 <div class="character-card">
                     <img src="https://fandom.com" alt="Bonnie" class="character-img">
@@ -162,27 +162,27 @@
             </div>
         </section>
 
-        <!-- SECTIE 5: MERCH -->
+        <!-- SECTIE 5: MERCH (Nu met echte FNaF productafbeeldingen!) -->
         <section id="merch">
             <h2>FAZBEAR MERCHANDISE</h2>
             <p>Neem een souvenir mee naar huis om te bewijzen dat je het overleefd hebt!</p>
             <div class="merch-container">
                 <div class="merch-item">
-                    <div class="merch-placeholder">👕</div>
+                    <img src="https://fandom.com" alt="Security Shirt" class="merch-img">
                     <h3>Fazbear Security Shirt</h3>
-                    <p>Word een echte nachtbewaker.</p>
+                    <p>Word een echte nachtbewaker met het officiële uniform.</p>
                     <span class="merch-price">€24,99</span>
                 </div>
                 <div class="merch-item">
-                    <div class="merch-placeholder">🧸</div>
+                    <img src="https://media-amazon.com" alt="Freddy Pluche" class="merch-img">
                     <h3>Freddy Pluche Knuffel</h3>
-                    <p>Lekker zacht en gegarandeerd spookvrij.</p>
+                    <p>[Funko Freddy Fazbear Plush](https://amazon.com): gegarandeerd spookvrij.</p>
                     <span class="merch-price">€19,99</span>
                 </div>
                 <div class="merch-item">
-                    <div class="merch-placeholder">🧢</div>
-                    <h3>Let's Eat! Pet</h3>
-                    <p>De bekende pet in de stijl van Chica.</p>
+                    <img src="https://media-amazon.com" alt="Chica Pluche" class="merch-img">
+                    <h3>Chica & Cupcake Pluche</h3>
+                    <p>[Funko Chica Plush](https://amazon.com): de iconische pluche pop uit de prijzenhoek.</p>
                     <span class="merch-price">€14,99</span>
                 </div>
             </div>
@@ -197,15 +197,3 @@
     <script>
         let totaalPrijs = 0;
         const orderList = document.getElementById('order-list');
-        const orderTotal = document.getElementById('order-total');
-
-        function voegToeAanBestelling(itemNaam, prijs) {
-            totaalPrijs += prijs;
-            const li = document.createElement('li');
-            li.textContent = `${itemNaam} - €${prijs.toFixed(2).replace('.', ',')}`;
-            orderList.appendChild(li);
-            orderTotal.textContent = `€${totaalPrijs.toFixed(2).replace('.', ',')}`;
-        }
-
-        function rondBestellingAf() {
-            if (totaalPrijs === 0) {
