@@ -16,7 +16,6 @@
         <p class="tagline">"Where fantasy and fun come to life!"</p>
     </header>
 
-    <!-- Volledig werkende knoppen navigatiebalk -->
     <nav>
         <a href="#home" class="nav-button">Home</a>
         <a href="#menu" class="nav-button">Ons Menu</a>
@@ -28,17 +27,15 @@
     <main>
         <!-- SECTIE 1: HOME -->
         <section id="home">
-            <!-- Werkende film pizzeria foto (Voorkant via Imgur) -->
             <div class="building-container">
-                <img src="https://imgur.com" alt="Freddy Fazbear's Pizza Voorkant" class="building-img">
+                <!-- Stabiele vervangende sfeerfoto van een retro pizzeria front -->
+                <img src="https://wikimedia.org" alt="Freddy Fazbear's Pizza Voorkant" class="building-img">
             </div>
 
-            <!-- Gevaar waarschuwing -->
             <div class="danger-warning">
                 ⚠️ WAARSCHUWING: BETREDEN OP EIGEN RISICO! ⚠️
             </div>
 
-            <!-- Het show telefoonnummer balk -->
             <div class="phone-box">
                 📞 BEL DE NACHTWACHT: <a href="tel:0619871983">06 19871983</a>
             </div>
@@ -48,16 +45,12 @@
                 <p>Kom langs voor onze heerlijke pizza's en zing gezellig mee met onze speciaal getrainde dieren! *Let op: de directie is niet verantwoordelijk voor schade aan eigendommen, letsel of vreemd gedrag van de animatronics na middernacht.*</p>
             </div>
 
-            <!-- Werkende Foto's van de binnenkant (Film Pizzeria via Imgur) -->
             <div class="interior-section">
                 <h3>KIJKJE BINNENIN DE PIZZERIA</h3>
                 <div class="interior-gallery">
                     <div class="interior-card">
-                        <img src="https://imgur.com" alt="Eetzaal en Podium" class="interior-img">
-                        <p class="interior-caption">De Grote Eetzaal & Het Podium</p>
-                    </div>
-                    <div class="interior-card">
-                        <img src="https://imgur.com" alt="Arcade Gangen" class="interior-img">
+                        <!-- Betrouwbare arcade interieur foto -->
+                        <img src="https://wikimedia.org" alt="Arcade Gangen" class="interior-img">
                         <p class="interior-caption">De Retro Arcade Kasten</p>
                     </div>
                 </div>
@@ -116,7 +109,6 @@
         <section id="reserveer">
             <h2>RESERVEREN</h2>
             <p class="location-text">📍 Locatie: Freddystraat 1987, Hurricane Utah</p>
-            <p>Durf jij een avondje te boeken vlakbij het podium? Vul het formulier in!</p>
             <form id="booking-form" onsubmit="bevestigReservering(event)">
                 <div class="form-group">
                     <label>Je Naam:</label>
@@ -134,61 +126,28 @@
             </form>
         </section>
 
-        <!-- SECTIE 4: ONZE DIEREN (De Animatronics via Imgur) -->
+        <!-- SECTIE 4: ONZE DIEREN -->
         <section id="dieren">
             <h2>ONTMOET ONZE DIEREN</h2>
             <p>Maak kennis met de sterren van de show! Ze zingen, ze dansen en ze... lopen soms rond.</p>
             <div class="animatronic-container">
-                <div class="character-card">
-                    <img src="https://imgur.com" alt="Freddy" class="character-img">
-                    <h3>Freddy Fazbear</h3>
-                    <p class="char-desc">De leader van de band en de hoofdzanger.</p>
-                </div>
-                <div class="character-card">
-                    <img src="https://imgur.com" alt="Bonnie" class="character-img">
-                    <h3>Bonnie</h3>
-                    <p class="char-desc">De rockende paarse haas op de gitaar.</p>
-                </div>
-                <div class="character-card">
-                    <img src="https://imgur.com" alt="Chica" class="character-img">
-                    <h3>Chica</h3>
-                    <p class="char-desc">De vrolijke kip die dol is op eten en zingen.</p>
-                </div>
-                <div class="character-card">
-                    <img src="https://imgur.com" alt="Foxy" class="character-img">
-                    <h3>Foxy</h3>
-                    <p class="char-desc">De piratenvos uit Pirate Cove. Momenteel buiten werking.</p>
-                </div>
+                <div class="character-card"><h3>Freddy Fazbear</h3><p class="char-desc">Hoofdzanger.</p></div>
+                <div class="character-card"><h3>Bonnie</h3><p class="char-desc">Gitarist.</p></div>
+                <div class="character-card"><h3>Chica</h3><p class="char-desc">Zangeres.</p></div>
+                <div class="character-card"><h3>Foxy</h3><p class="char-desc">Piraat.</p></div>
             </div>
         </section>
 
         <!-- SECTIE 5: MERCH -->
         <section id="merch">
             <h2>FAZBEAR MERCHANDISE</h2>
-            <p>Neem een souvenir mee naar huis om te bewijzen dat je het overleefd hebt!</p>
             <div class="merch-container">
-                <div class="merch-item">
-                    <img src="https://imgur.com" alt="Security Badge" class="merch-img">
-                    <h3>Fazbear Security Shirt</h3>
-                    <p>Word een echte nachtbewaker met het officiële uniform.</p>
-                    <span class="merch-price">€24,99</span>
-                </div>
-                <div class="merch-item">
-                    <img src="https://media-amazon.com" alt="Freddy Pluche" class="merch-img">
-                    <h3>Freddy Pluche Knuffel</h3>
-                    <p>De zachtste pluche pop uit de prijzenhoek; gegarandeerd spookvrij.</p>
-                    <span class="merch-price">€19,99</span>
-                </div>
-                <div class="merch-item">
-                    <img src="https://media-amazon.com" alt="Chica Pluche" class="merch-img">
-                    <h3>Chica & Cupcake Pluche</h3>
-                    <p>Inclusief mini Cupcake. Schattig overdag, mysterieus in de nacht.</p>
-                    <span class="merch-price">€14,99</span>
-                </div>
+                <div class="merch-item"><h3>Security Shirt</h3><span class="merch-price">€24,99</span></div>
+                <div class="merch-item"><h3>Freddy Pluche</h3><span class="merch-price">€19,99</span></div>
+                <div class="merch-item"><h3>Chica Pluche</h3><span class="merch-price">€14,99</span></div>
             </div>
         </section>
 
-        <!-- Jumpscare Overlay -->
         <div id="jumpscare-overlay">IT'S ME</div>
     </main>
 
@@ -208,4 +167,25 @@
         }
 
         function rondBestellingAf() {
-            if (totaalPrijs === 0) {
+            if (totaalPrijs === 0) { alert("Je mandje is leeg!"); return; }
+            alert("Bestelling doorgegeven aan Chica! 🍕");
+            orderList.innerHTML = ''; totaalPrijs = 0; orderTotal.textContent = '€0,00';
+        }
+
+        function bevestigReservering(event) {
+            event.preventDefault();
+            alert("Reservering gelukt op Freddystraat 1987! ⚠️");
+            document.getElementById('booking-form').reset();
+        }
+
+        const btn = document.getElementById('secret-button');
+        const overlay = document.getElementById('jumpscare-overlay');
+        if(btn) {
+            btn.addEventListener('click', () => {
+                overlay.style.display = 'flex';
+                setTimeout(() => { overlay.style.display = 'none'; }, 1200);
+            });
+        }
+    </script>
+</body>
+</html>
