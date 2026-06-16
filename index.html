@@ -16,17 +16,18 @@
         <p class="tagline">"Where fantasy and fun come to life!"</p>
     </header>
 
+    <!-- Werkende knoppen die je automatisch naar het juiste deel sturen -->
     <nav>
-        <button class="nav-button active" onclick="openTab('home-tab')">Home</button>
-        <button class="nav-button" onclick="openTab('menu-tab')">Ons Menu</button>
-        <button class="nav-button" onclick="openTab('reserveer-tab')">Reserveren</button>
-        <button class="nav-button" onclick="openTab('dieren-tab')">Onze Dieren</button>
-        <button class="nav-button" onclick="openTab('merch-tab')">Merch</button>
+        <a href="#home" class="nav-button">Home</a>
+        <a href="#menu" class="nav-button">Ons Menu</a>
+        <a href="#reserveer" class="nav-button">Reserveren</a>
+        <a href="#dieren" class="nav-button">Onze Dieren</a>
+        <a href="#merch" class="nav-button">Merch</a>
     </nav>
 
     <main>
-        <!-- TAB 1: HOME -->
-        <section id="home-tab" class="tab-content active-tab">
+        <!-- SECTIE 1: HOME -->
+        <section id="home">
             <!-- Officiële film pizzeria foto (Voorkant) -->
             <div class="building-container">
                 <img src="https://fandom.com" alt="Freddy Fazbear's Pizza Voorkant" class="building-img">
@@ -37,7 +38,7 @@
                 ⚠️ WAARSCHUWING: BETREDEN OP EIGEN RISICO! ⚠️
             </div>
 
-            <!-- NIEUW: Het show telefoonnummer balk -->
+            <!-- Het show telefoonnummer balk -->
             <div class="phone-box">
                 📞 BEL DE NACHTWACHT: <a href="tel:0619871983">06 19871983</a>
             </div>
@@ -47,7 +48,7 @@
                 <p>Kom langs voor onze heerlijke pizza's en zing gezellig mee met onze speciaal getrainde dieren! *Let op: de directie is niet verantwoordelijk voor schade aan eigendommen, letsel of vreemd gedrag van de animatronics na middernacht.*</p>
             </div>
 
-            <!-- NIEUW: Foto's van de binnenkant (Film Pizzeria) -->
+            <!-- Foto's van de binnenkant (Film Pizzeria) -->
             <div class="interior-section">
                 <h3>KIJKJE BINNENIN DE PIZZERIA</h3>
                 <div class="interior-gallery">
@@ -65,8 +66,8 @@
             <button id="secret-button" style="margin-top: 40px;">KLIK NIET OP DEZE KNOP</button>
         </section>
 
-        <!-- TAB 2: ONS MENU -->
-        <section id="menu-tab" class="tab-content">
+        <!-- SECTIE 2: ONS MENU -->
+        <section id="menu">
             <h2>FREDDY'S PIZZA MENU</h2>
             <p>Klik op een gerecht om het toe te voegen aan je kassabon!</p>
             
@@ -111,8 +112,8 @@
             </div>
         </section>
 
-        <!-- TAB 3: RESERVEREN -->
-        <section id="reserveer-tab" class="tab-content">
+        <!-- SECTIE 3: RESERVEREN -->
+        <section id="reserveer">
             <h2>RESERVEREN</h2>
             <p class="location-text">📍 Locatie: Freddystraat 1987, Hurricane Utah</p>
             <p>Durf jij een avondje te boeken vlakbij het podium? Vul het formulier in!</p>
@@ -133,15 +134,15 @@
             </form>
         </section>
 
-        <!-- TAB 4: ONZE DIEREN (De Animatronics) -->
-        <section id="dieren-tab" class="tab-content">
+        <!-- SECTIE 4: ONZE DIEREN (De Animatronics) -->
+        <section id="dieren">
             <h2>ONTMOET ONZE DIEREN</h2>
             <p>Maak kennis met de sterren van de show! Ze zingen, ze dansen en ze... lopen soms rond.</p>
             <div class="animatronic-container">
                 <div class="character-card">
                     <img src="https://fandom.com" alt="Freddy" class="character-img">
                     <h3>Freddy Fazbear</h3>
-                    <p class="char-desc">De leader van de band en de hoofdzanger.</p>
+                    <p class="char-desc">De leader van de band und de hoofdzanger.</p>
                 </div>
                 <div class="character-card">
                     <img src="https://fandom.com" alt="Bonnie" class="character-img">
@@ -161,8 +162,8 @@
             </div>
         </section>
 
-        <!-- TAB 5: MERCH -->
-        <section id="merch-tab" class="tab-content">
+        <!-- SECTIE 5: MERCH -->
+        <section id="merch">
             <h2>FAZBEAR MERCHANDISE</h2>
             <p>Neem een souvenir mee naar huis om te bewijzen dat je het overleefd hebt!</p>
             <div class="merch-container">
@@ -194,10 +195,17 @@
     <div class="checkerboard" style="margin-top: 50px;"></div>
 
     <script>
-        function openTab(tabId) {
-            const tabs = document.getElementsByClassName('tab-content');
-            for (let i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove('active-tab');
-            }
-            const buttons = document.getElementsByClassName('nav-button');
-            for (let i = 0; i < buttons.length; i++) {
+        let totaalPrijs = 0;
+        const orderList = document.getElementById('order-list');
+        const orderTotal = document.getElementById('order-total');
+
+        function voegToeAanBestelling(itemNaam, prijs) {
+            totaalPrijs += prijs;
+            const li = document.createElement('li');
+            li.textContent = `${itemNaam} - €${prijs.toFixed(2).replace('.', ',')}`;
+            orderList.appendChild(li);
+            orderTotal.textContent = `€${totaalPrijs.toFixed(2).replace('.', ',')}`;
+        }
+
+        function rondBestellingAf() {
+            if (totaalPrijs === 0) {
