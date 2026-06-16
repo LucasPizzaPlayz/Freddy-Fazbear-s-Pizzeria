@@ -16,7 +16,6 @@
         <p class="tagline">"Where fantasy and fun come to life!"</p>
     </header>
 
-    <!-- Vernieuwde navigatiebalk die de tabbladen aanstuurt -->
     <nav>
         <button class="nav-button active" onclick="openTab('home-tab')">Home</button>
         <button class="nav-button" onclick="openTab('menu-tab')">Ons Menu</button>
@@ -28,14 +27,45 @@
     <main>
         <!-- TAB 1: HOME -->
         <section id="home-tab" class="tab-content active-tab">
+            <!-- Officiële film pizzeria foto (Voorkant) -->
+            <div class="building-container">
+                <img src="https://fandom.com" alt="Freddy Fazbear's Pizza Voorkant" class="building-img">
+            </div>
+
+            <!-- Gevaar waarschuwing -->
+            <div class="danger-warning">
+                ⚠️ WAARSCHUWING: BETREDEN OP EIGEN RISICO! ⚠️
+            </div>
+
+            <!-- NIEUW: Het show telefoonnummer balk -->
+            <div class="phone-box">
+                📞 BEL DE NACHTWACHT: <a href="tel:0619871983">06 19871983</a>
+            </div>
+
             <div class="welcome-box">
                 <h2>Welkom bij de gezelligste familiepizzeria!</h2>
-                <p>Kom langs voor onze heerlijke pizza's en zing gezellig mee met onze speciaal getrainde dieren! *Let op: de directie is niet verantwoordelijk voor eventuele vermissingen of vreemd gedrag van de animatronics na middernacht.*</p>
+                <p>Kom langs voor onze heerlijke pizza's en zing gezellig mee met onze speciaal getrainde dieren! *Let op: de directie is niet verantwoordelijk voor schade aan eigendommen, letsel of vreemd gedrag van de animatronics na middernacht.*</p>
             </div>
-            <button id="secret-button">KLIK NIET OP DEZE KNOP</button>
+
+            <!-- NIEUW: Foto's van de binnenkant (Film Pizzeria) -->
+            <div class="interior-section">
+                <h3>KIJKJE BINNENIN DE PIZZERIA</h3>
+                <div class="interior-gallery">
+                    <div class="interior-card">
+                        <img src="https://fandom.com" alt="Eetzaal en Podium" class="interior-img">
+                        <p class="interior-caption">De Grote Eetzaal & Het Podium</p>
+                    </div>
+                    <div class="interior-card">
+                        <img src="https://fandom.com" alt="Arcade Gangen" class="interior-img">
+                        <p class="interior-caption">De Retro Arcade Kasten</p>
+                    </div>
+                </div>
+            </div>
+
+            <button id="secret-button" style="margin-top: 40px;">KLIK NIET OP DEZE KNOP</button>
         </section>
 
-        <!-- TAB 2: ONS MENU (Jouw aangepaste gerechten!) -->
+        <!-- TAB 2: ONS MENU -->
         <section id="menu-tab" class="tab-content">
             <h2>FREDDY'S PIZZA MENU</h2>
             <p>Klik op een gerecht om het toe te voegen aan je kassabon!</p>
@@ -84,6 +114,7 @@
         <!-- TAB 3: RESERVEREN -->
         <section id="reserveer-tab" class="tab-content">
             <h2>RESERVEREN</h2>
+            <p class="location-text">📍 Locatie: Freddystraat 1987, Hurricane Utah</p>
             <p>Durf jij een avondje te boeken vlakbij het podium? Vul het formulier in!</p>
             <form id="booking-form" onsubmit="bevestigReservering(event)">
                 <div class="form-group">
@@ -110,7 +141,7 @@
                 <div class="character-card">
                     <img src="https://fandom.com" alt="Freddy" class="character-img">
                     <h3>Freddy Fazbear</h3>
-                    <p class="char-desc">De leider van de band en de hoofdzanger.</p>
+                    <p class="char-desc">De leader van de band en de hoofdzanger.</p>
                 </div>
                 <div class="character-card">
                     <img src="https://fandom.com" alt="Bonnie" class="character-img">
@@ -162,49 +193,11 @@
 
     <div class="checkerboard" style="margin-top: 50px;"></div>
 
-    <!-- JAVASCRIPT VOOR DE LOGICA -->
     <script>
-        // Systeem om tussen de tabbladen te wisselen
         function openTab(tabId) {
-            // Verberg alle tabbladen
             const tabs = document.getElementsByClassName('tab-content');
             for (let i = 0; i < tabs.length; i++) {
                 tabs[i].classList.remove('active-tab');
             }
-            // Haal de 'active' status weg bij alle knoppen
             const buttons = document.getElementsByClassName('nav-button');
             for (let i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove('active');
-            }
-            // Toon het gekozen tabblad en maak de geklikte knop rood
-            document.getElementById(tabId).classList.add('active-tab');
-            event.currentTarget.classList.add('active');
-        }
-
-        // Menukaart bestelsysteem
-        let totaalPrijs = 0;
-        const orderList = document.getElementById('order-list');
-        const orderTotal = document.getElementById('order-total');
-
-        function voegToeAanBestelling(itemNaam, prijs) {
-            totaalPrijs += prijs;
-            const li = document.createElement('li');
-            li.textContent = `${itemNaam} - €${prijs.toFixed(2).replace('.', ',')}`;
-            orderList.appendChild(li);
-            orderTotal.textContent = `€${totaalPrijs.toFixed(2).replace('.', ',')}`;
-        }
-
-        function rondBestellingAf() {
-            if (totaalPrijs === 0) {
-                alert("Je mandje is leeg! Klik eerst op een gerecht.");
-                return;
-            }
-            alert("Je bestelling is doorgegeven aan Chica! 🍕 Wel even geduld, Foxy probeert de bezorger te tackelen.");
-            orderList.innerHTML = '';
-            totaalPrijs = 0;
-            orderTotal.textContent = '€0,00';
-        }
-
-        // Reservering logica
-        function bevestigReservering(event) {
-            event.preventDefault();
