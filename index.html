@@ -28,9 +28,9 @@
     <main>
         <!-- SECTIE 1: HOME -->
         <section id="home">
-            <!-- Officiële film pizzeria foto (Voorkant) -->
+            <!-- Werkende film pizzeria foto (Voorkant via Imgur) -->
             <div class="building-container">
-                <img src="https://fandom.com" alt="Freddy Fazbear's Pizza Voorkant" class="building-img">
+                <img src="https://imgur.com" alt="Freddy Fazbear's Pizza Voorkant" class="building-img">
             </div>
 
             <!-- Gevaar waarschuwing -->
@@ -48,16 +48,16 @@
                 <p>Kom langs voor onze heerlijke pizza's en zing gezellig mee met onze speciaal getrainde dieren! *Let op: de directie is niet verantwoordelijk voor schade aan eigendommen, letsel of vreemd gedrag van de animatronics na middernacht.*</p>
             </div>
 
-            <!-- Foto's van de binnenkant (Film Pizzeria) -->
+            <!-- Werkende Foto's van de binnenkant (Film Pizzeria via Imgur) -->
             <div class="interior-section">
                 <h3>KIJKJE BINNENIN DE PIZZERIA</h3>
                 <div class="interior-gallery">
                     <div class="interior-card">
-                        <img src="https://fandom.com" alt="Eetzaal en Podium" class="interior-img">
+                        <img src="https://imgur.com" alt="Eetzaal en Podium" class="interior-img">
                         <p class="interior-caption">De Grote Eetzaal & Het Podium</p>
                     </div>
                     <div class="interior-card">
-                        <img src="https://fandom.com" alt="Arcade Gangen" class="interior-img">
+                        <img src="https://imgur.com" alt="Arcade Gangen" class="interior-img">
                         <p class="interior-caption">De Retro Arcade Kasten</p>
                     </div>
                 </div>
@@ -134,41 +134,41 @@
             </form>
         </section>
 
-        <!-- SECTIE 4: ONZE DIEREN (De Animatronics) -->
+        <!-- SECTIE 4: ONZE DIEREN (De Animatronics via Imgur) -->
         <section id="dieren">
             <h2>ONTMOET ONZE DIEREN</h2>
             <p>Maak kennis met de sterren van de show! Ze zingen, ze dansen en ze... lopen soms rond.</p>
             <div class="animatronic-container">
                 <div class="character-card">
-                    <img src="https://fandom.com" alt="Freddy" class="character-img">
+                    <img src="https://imgur.com" alt="Freddy" class="character-img">
                     <h3>Freddy Fazbear</h3>
                     <p class="char-desc">De leader van de band en de hoofdzanger.</p>
                 </div>
                 <div class="character-card">
-                    <img src="https://fandom.com" alt="Bonnie" class="character-img">
+                    <img src="https://imgur.com" alt="Bonnie" class="character-img">
                     <h3>Bonnie</h3>
                     <p class="char-desc">De rockende paarse haas op de gitaar.</p>
                 </div>
                 <div class="character-card">
-                    <img src="https://fandom.com" alt="Chica" class="character-img">
+                    <img src="https://imgur.com" alt="Chica" class="character-img">
                     <h3>Chica</h3>
                     <p class="char-desc">De vrolijke kip die dol is op eten en zingen.</p>
                 </div>
                 <div class="character-card">
-                    <img src="https://fandom.com" alt="Foxy" class="character-img">
+                    <img src="https://imgur.com" alt="Foxy" class="character-img">
                     <h3>Foxy</h3>
                     <p class="char-desc">De piratenvos uit Pirate Cove. Momenteel buiten werking.</p>
                 </div>
             </div>
         </section>
 
-        <!-- SECTIE 5: MERCH (Nu met echte FNaF productafbeeldingen!) -->
+        <!-- SECTIE 5: MERCH -->
         <section id="merch">
             <h2>FAZBEAR MERCHANDISE</h2>
             <p>Neem een souvenir mee naar huis om te bewijzen dat je het overleefd hebt!</p>
             <div class="merch-container">
                 <div class="merch-item">
-                    <img src="https://fandom.com" alt="Security Shirt" class="merch-img">
+                    <img src="https://imgur.com" alt="Security Badge" class="merch-img">
                     <h3>Fazbear Security Shirt</h3>
                     <p>Word een echte nachtbewaker met het officiële uniform.</p>
                     <span class="merch-price">€24,99</span>
@@ -176,13 +176,13 @@
                 <div class="merch-item">
                     <img src="https://media-amazon.com" alt="Freddy Pluche" class="merch-img">
                     <h3>Freddy Pluche Knuffel</h3>
-                    <p>[Funko Freddy Fazbear Plush](https://amazon.com): gegarandeerd spookvrij.</p>
+                    <p>De zachtste pluche pop uit de prijzenhoek; gegarandeerd spookvrij.</p>
                     <span class="merch-price">€19,99</span>
                 </div>
                 <div class="merch-item">
                     <img src="https://media-amazon.com" alt="Chica Pluche" class="merch-img">
                     <h3>Chica & Cupcake Pluche</h3>
-                    <p>[Funko Chica Plush](https://amazon.com): de iconische pluche pop uit de prijzenhoek.</p>
+                    <p>Inclusief mini Cupcake. Schattig overdag, mysterieus in de nacht.</p>
                     <span class="merch-price">€14,99</span>
                 </div>
             </div>
@@ -197,3 +197,15 @@
     <script>
         let totaalPrijs = 0;
         const orderList = document.getElementById('order-list');
+        const orderTotal = document.getElementById('order-total');
+
+        function voegToeAanBestelling(itemNaam, prijs) {
+            totaalPrijs += prijs;
+            const li = document.createElement('li');
+            li.textContent = `${itemNaam} - €${prijs.toFixed(2).replace('.', ',')}`;
+            orderList.appendChild(li);
+            orderTotal.textContent = `€${totaalPrijs.toFixed(2).replace('.', ',')}`;
+        }
+
+        function rondBestellingAf() {
+            if (totaalPrijs === 0) {
