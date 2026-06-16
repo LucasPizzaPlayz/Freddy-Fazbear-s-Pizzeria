@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freddy Fazbear's Pizzeria</title>
-    <!-- We laden een gaaf retro pixel-lettertype van Google Fonts -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- De bekende zwart-witte pizzeria rand bovenaan -->
     <div class="checkerboard"></div>
 
     <header>
@@ -18,37 +16,195 @@
         <p class="tagline">"Where fantasy and fun come to life!"</p>
     </header>
 
+    <!-- Vernieuwde navigatiebalk die de tabbladen aanstuurt -->
     <nav>
-        <a href="#home" class="nav-button">Home</a>
-        <a href="#menu" class="nav-button">Ons Menu</a>
-        <a href="#cameras" class="nav-button" id="cam-link">Beveiliging</a>
+        <button class="nav-button active" onclick="openTab('home-tab')">Home</button>
+        <button class="nav-button" onclick="openTab('menu-tab')">Ons Menu</button>
+        <button class="nav-button" onclick="openTab('reserveer-tab')">Reserveren</button>
+        <button class="nav-button" onclick="openTab('dieren-tab')">Onze Dieren</button>
+        <button class="nav-button" onclick="openTab('merch-tab')">Merch</button>
     </nav>
 
     <main>
-        <section id="welcome-box">
-            <h2>Welkom bij de gezelligste familiepizzeria!</h2>
-            <p>Kom langs voor onze heerlijke pizza's en zing gezellig mee met Freddy, Bonnie en Chica! *Let op: de directie is niet verantwoordelijk voor eventuele vermissingen of vreemd gedrag van de animatronics na middernacht.*</p>
+        <!-- TAB 1: HOME -->
+        <section id="home-tab" class="tab-content active-tab">
+            <div class="welcome-box">
+                <h2>Welkom bij de gezelligste familiepizzeria!</h2>
+                <p>Kom langs voor onze heerlijke pizza's en zing gezellig mee met onze speciaal getrainde dieren! *Let op: de directie is niet verantwoordelijk voor eventuele vermissingen of vreemd gedrag van de animatronics na middernacht.*</p>
+            </div>
+            <button id="secret-button">KLIK NIET OP DEZE KNOP</button>
         </section>
 
-        <!-- Een interactieve knop voor een kleine FNaF verrassing -->
-        <button id="secret-button">KLIK NIET OP DEZE KNOP</button>
+        <!-- TAB 2: ONS MENU (Jouw aangepaste gerechten!) -->
+        <section id="menu-tab" class="tab-content">
+            <h2>FREDDY'S PIZZA MENU</h2>
+            <p>Klik op een gerecht om het toe te voegen aan je kassabon!</p>
+            
+            <div class="menu-container">
+                <div class="menu-item" onclick="voegToeAanBestelling('Pizza (alle soorten)', 6.00)">
+                    <h3>Pizza (alle soorten)</h3>
+                    <p>Kies je favoriete toppings aan de kassa.</p>
+                    <span class="price">€6,00</span>
+                </div>
+                <div class="menu-item" onclick="voegToeAanBestelling('Poffertjes', 11.00)">
+                    <h3>Poffertjes</h3>
+                    <p>Een flinke portie met een flinke klont boter en poedersuiker.</p>
+                    <span class="price">€11,00</span>
+                </div>
+                <div class="menu-item" onclick="voegToeAanBestelling('Pannenkoeken', 6.00)">
+                    <h3>Pannenkoeken</h3>
+                    <p>Groot, goudbruin en vers gebakken in Chica's keuken.</p>
+                    <span class="price">€6,00</span>
+                </div>
+                <div class="menu-item" onclick="voegToeAanBestelling('Foxy Ice Cream', 3.00)">
+                    <h3>Foxy Ice Cream</h3>
+                    <p>Ijskoud piratenavontuur in een bakje of hoorntje.</p>
+                    <span class="price">€3,00</span>
+                </div>
+                <div class="menu-item" onclick="voegToeAanBestelling('Freddy Faz Cola', 4.00)">
+                    <h3>Freddy Faz Cola</h3>
+                    <p>De enige echte cola die je de hele nacht wakker houdt.</p>
+                    <span class="price">€4,00</span>
+                </div>
+                <div class="menu-item" onclick="voegToeAanBestelling('Chica Cupcake', 6.00)">
+                    <h3>Chica Cupcake</h3>
+                    <p>De iconische roze cupcake met oogjes. Pas op dat hij niet terugbijt!</p>
+                    <span class="price">€6,00</span>
+                </div>
+            </div>
+
+            <div id="order-box">
+                <h3>JOUW BESTELLING</h3>
+                <ul id="order-list"></ul>
+                <p>Totaal: <span id="order-total">€0,00</span></p>
+                <button id="order-btn" onclick="rondBestellingAf()">Plaats Bestelling</button>
+            </div>
+        </section>
+
+        <!-- TAB 3: RESERVEREN -->
+        <section id="reserveer-tab" class="tab-content">
+            <h2>RESERVEREN</h2>
+            <p>Durf jij een avondje te boeken vlakbij het podium? Vul het formulier in!</p>
+            <form id="booking-form" onsubmit="bevestigReservering(event)">
+                <div class="form-group">
+                    <label>Je Naam:</label>
+                    <input type="text" required placeholder="Bijv. Mike Schmidt">
+                </div>
+                <div class="form-group">
+                    <label>Aantal Personen:</label>
+                    <input type="number" min="1" max="10" required value="2">
+                </div>
+                <div class="form-group">
+                    <label>Welke Datum:</label>
+                    <input type="date" required>
+                </div>
+                <button type="submit" class="submit-btn">Reserveer Tafel (Als je durft)</button>
+            </form>
+        </section>
+
+        <!-- TAB 4: ONZE DIEREN (De Animatronics) -->
+        <section id="dieren-tab" class="tab-content">
+            <h2>ONTMOET ONZE DIEREN</h2>
+            <p>Maak kennis met de sterren van de show! Ze zingen, ze dansen en ze... lopen soms rond.</p>
+            <div class="animatronic-container">
+                <div class="character-card">
+                    <img src="https://fandom.com" alt="Freddy" class="character-img">
+                    <h3>Freddy Fazbear</h3>
+                    <p class="char-desc">De leider van de band en de hoofdzanger.</p>
+                </div>
+                <div class="character-card">
+                    <img src="https://fandom.com" alt="Bonnie" class="character-img">
+                    <h3>Bonnie</h3>
+                    <p class="char-desc">De rockende paarse haas op de gitaar.</p>
+                </div>
+                <div class="character-card">
+                    <img src="https://fandom.com" alt="Chica" class="character-img">
+                    <h3>Chica</h3>
+                    <p class="char-desc">De vrolijke kip die dol is op eten en zingen.</p>
+                </div>
+                <div class="character-card">
+                    <img src="https://fandom.com" alt="Foxy" class="character-img">
+                    <h3>Foxy</h3>
+                    <p class="char-desc">De piratenvos uit Pirate Cove. Momenteel buiten werking.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: MERCH -->
+        <section id="merch-tab" class="tab-content">
+            <h2>FAZBEAR MERCHANDISE</h2>
+            <p>Neem een souvenir mee naar huis om te bewijzen dat je het overleefd hebt!</p>
+            <div class="merch-container">
+                <div class="merch-item">
+                    <div class="merch-placeholder">👕</div>
+                    <h3>Fazbear Security Shirt</h3>
+                    <p>Word een echte nachtbewaker.</p>
+                    <span class="merch-price">€24,99</span>
+                </div>
+                <div class="merch-item">
+                    <div class="merch-placeholder">🧸</div>
+                    <h3>Freddy Pluche Knuffel</h3>
+                    <p>Lekker zacht en gegarandeerd spookvrij.</p>
+                    <span class="merch-price">€19,99</span>
+                </div>
+                <div class="merch-item">
+                    <div class="merch-placeholder">🧢</div>
+                    <h3>Let's Eat! Pet</h3>
+                    <p>De bekende pet in de stijl van Chica.</p>
+                    <span class="merch-price">€14,99</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Jumpscare Overlay -->
         <div id="jumpscare-overlay">IT'S ME</div>
     </main>
 
-    <!-- De zwart-witte rand onderaan -->
     <div class="checkerboard" style="margin-top: 50px;"></div>
 
-    <!-- Een klein stukje JavaScript voor een 'Easter Egg' effect -->
+    <!-- JAVASCRIPT VOOR DE LOGICA -->
     <script>
-        const btn = document.getElementById('secret-button');
-        const overlay = document.getElementById('jumpscare-overlay');
-        
-        btn.addEventListener('click', () => {
-            overlay.style.display = 'flex';
-            setTimeout(() => {
-                overlay.style.display = 'none';
-            }, 1500); // Verdwijnt weer na 1.5 seconde
-        });
-    </script>
-</body>
-</html>
+        // Systeem om tussen de tabbladen te wisselen
+        function openTab(tabId) {
+            // Verberg alle tabbladen
+            const tabs = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active-tab');
+            }
+            // Haal de 'active' status weg bij alle knoppen
+            const buttons = document.getElementsByClassName('nav-button');
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+            // Toon het gekozen tabblad en maak de geklikte knop rood
+            document.getElementById(tabId).classList.add('active-tab');
+            event.currentTarget.classList.add('active');
+        }
+
+        // Menukaart bestelsysteem
+        let totaalPrijs = 0;
+        const orderList = document.getElementById('order-list');
+        const orderTotal = document.getElementById('order-total');
+
+        function voegToeAanBestelling(itemNaam, prijs) {
+            totaalPrijs += prijs;
+            const li = document.createElement('li');
+            li.textContent = `${itemNaam} - €${prijs.toFixed(2).replace('.', ',')}`;
+            orderList.appendChild(li);
+            orderTotal.textContent = `€${totaalPrijs.toFixed(2).replace('.', ',')}`;
+        }
+
+        function rondBestellingAf() {
+            if (totaalPrijs === 0) {
+                alert("Je mandje is leeg! Klik eerst op een gerecht.");
+                return;
+            }
+            alert("Je bestelling is doorgegeven aan Chica! 🍕 Wel even geduld, Foxy probeert de bezorger te tackelen.");
+            orderList.innerHTML = '';
+            totaalPrijs = 0;
+            orderTotal.textContent = '€0,00';
+        }
+
+        // Reservering logica
+        function bevestigReservering(event) {
+            event.preventDefault();
