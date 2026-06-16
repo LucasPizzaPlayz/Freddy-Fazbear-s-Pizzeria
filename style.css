@@ -1,0 +1,105 @@
+/* Algemene styling en retro FNaF sfeer */
+body {
+    background-color: #121216; /* Donkere achtergrond */
+    color: #f3af17; /* Freddy goud/geel */
+    font-family: 'VT323', monospace; /* Pixel font */
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* De iconische zwart-witte schaakbordrand */
+.checkerboard {
+    background-image: 
+        linear-gradient(45deg, #000 25%, transparent 25%), 
+        linear-gradient(-45deg, #000 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #000 75%), 
+        linear-gradient(-45deg, transparent 75%, #000 75%);
+    background-size: 40px 40px;
+    background-position: 0 0, 0 20px, 20px -20px, -20px 0;
+    background-color: #fff;
+    height: 40px;
+    width: 100%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+header h1 {
+    color: #ff0044; /* Neon rood */
+    font-size: 60px;
+    text-shadow: 3px 3px #000, 0 0 10px #ff0044;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+.tagline {
+    color: #00ffcc; /* Neon cyaan */
+    font-style: italic;
+    text-shadow: 2px 2px #000;
+}
+
+/* Navigatiebalk knoppen */
+nav {
+    margin: 30px 0;
+}
+
+.nav-button {
+    display: inline-block;
+    background-color: #222;
+    color: #fff;
+    border: 3px solid #f3af17;
+    padding: 10px 20px;
+    margin: 0 10px;
+    text-decoration: none;
+    box-shadow: 4px 4px 0px #000;
+}
+
+.nav-button:hover {
+    background-color: #f3af17;
+    color: #000;
+    cursor: pointer;
+}
+
+/* Welkomstbox */
+#welcome-box {
+    background-color: #1a1a24;
+    border: 4px dashed #ff0044;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+/* De geheime knop */
+#secret-button {
+    background-color: #ff0044;
+    color: white;
+    font-family: 'VT323', monospace;
+    font-size: 24px;
+    border: none;
+    padding: 15px 30px;
+    margin-top: 40px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #ff0044;
+}
+
+#secret-button:hover {
+    background-color: #b30030;
+}
+
+/* Schermvullend geheim effect (Easter Egg) */
+#jumpscare-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    color: #fff;
+    font-size: 120px;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    letter-spacing: 20px;
+}
