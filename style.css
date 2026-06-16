@@ -1,15 +1,13 @@
-/* Algemene styling en retro FNaF sfeer */
 body {
-    background-color: #121216; /* Donkere achtergrond */
-    color: #f3af17; /* Freddy goud/geel */
-    font-family: 'VT323', monospace; /* Pixel font */
+    background-color: #121216;
+    color: #f3af17;
+    font-family: 'VT323', monospace;
     font-size: 24px;
     margin: 0;
     padding: 0;
     text-align: center;
 }
 
-/* De iconische zwart-witte schaakbordrand */
 .checkerboard {
     background-image: 
         linear-gradient(45deg, #000 25%, transparent 25%), 
@@ -21,56 +19,296 @@ body {
     background-color: #fff;
     height: 40px;
     width: 100%;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
 }
 
 header h1 {
-    color: #ff0044; /* Neon rood */
+    color: #ff0044;
     font-size: 60px;
     text-shadow: 3px 3px #000, 0 0 10px #ff0044;
-    margin-top: 30px;
-    margin-bottom: 0;
+    margin: 30px 0 0 0;
 }
 
 .tagline {
-    color: #00ffcc; /* Neon cyaan */
+    color: #00ffcc;
     font-style: italic;
     text-shadow: 2px 2px #000;
 }
 
-/* Navigatiebalk knoppen */
+/* Afbeelding Voorkant Gebouw */
+.building-container {
+    max-width: 650px;
+    margin: 20px auto 10px auto;
+    border: 4px solid #f3af17;
+    box-shadow: 0px 0px 25px rgba(255, 0, 68, 0.6);
+}
+
+.building-img {
+    width: 100%;
+    display: block;
+}
+
+/* Knipperende Gevaar Waarschuwing */
+.danger-warning {
+    color: #ff0044;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+    text-shadow: 2px 2px #000;
+    animation: blinker 1.2s linear infinite;
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+
+/* Telefoonnummer Box */
+.phone-box {
+    background-color: #1a1a24;
+    border: 2px solid #00ffcc;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 25px;
+    font-size: 26px;
+    box-shadow: 4px 4px 0px #000;
+}
+
+.phone-box a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.phone-box a:hover {
+    color: #ff0044;
+}
+
+/* Locatietekst */
+.location-text {
+    color: #00ffcc;
+    font-size: 28px;
+    text-shadow: 1px 1px #000;
+}
+
+/* Navigatie Knoppen */
 nav {
     margin: 30px 0;
 }
 
 .nav-button {
-    display: inline-block;
     background-color: #222;
     color: #fff;
     border: 3px solid #f3af17;
     padding: 10px 20px;
-    margin: 0 10px;
-    text-decoration: none;
+    margin: 5px;
+    font-family: 'VT323', monospace;
+    font-size: 22px;
+    cursor: pointer;
     box-shadow: 4px 4px 0px #000;
 }
 
-.nav-button:hover {
-    background-color: #f3af17;
+.nav-button:hover, .nav-button.active {
+    background-color: #ff0044;
+    color: #fff;
+    border-color: #fff;
+}
+
+/* Tabbladen Logica */
+.tab-content {
+    display: none;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.active-tab {
+    display: block;
+}
+
+.welcome-box {
+    background-color: #1a1a24;
+    border: 4px dashed #ff0044;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+/* Binnenkant Foto's Sectie */
+.interior-section {
+    margin-top: 40px;
+}
+
+.interior-section h3 {
+    color: #00ffcc;
+    font-size: 34px;
+    text-shadow: 2px 2px #000;
+}
+
+.interior-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.interior-card {
+    background-color: #1a1a24;
+    border: 3px solid #ff0044;
+    padding: 10px;
+    width: 380px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+}
+
+.interior-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.interior-caption {
+    font-size: 20px;
+    color: #fff;
+    margin: 10px 0 0 0;
+}
+
+/* Menu items */
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.menu-item {
+    background-color: #1a1a24;
+    border: 2px solid #00ffcc;
+    padding: 15px;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+}
+
+.menu-item:hover {
+    border-color: #f3af17;
+    background-color: #252535;
+}
+
+.menu-item h3 { margin: 0; color: #fff; }
+.menu-item p { margin: 5px 0 0 0; font-size: 18px; color: #aaa; }
+.price { position: absolute; right: 20px; top: 20px; font-size: 28px; color: #f3af17; }
+
+/* Kassabon */
+#order-box {
+    background-color: #fff;
     color: #000;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+    border: 2px dashed #000;
+}
+
+#order-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    font-family: 'VT323', monospace;
+    font-size: 22px;
+    padding: 10px;
+    width: 100%;
     cursor: pointer;
 }
 
-/* Welkomstbox */
-#welcome-box {
+/* Formulier voor Reserveren */
+#booking-form {
     background-color: #1a1a24;
-    border: 4px dashed #ff0044;
-    max-width: 600px;
+    border: 3px solid #f3af17;
+    padding: 30px;
+    max-width: 500px;
     margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    text-align: left;
 }
 
-/* De geheime knop */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #00ffcc;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+.submit-btn {
+    background-color: #ff0044;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-family: 'VT323', monospace;
+    font-size: 22px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Animatronics Dieren */
+.animatronic-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.character-card {
+    background-color: #1a1a24;
+    border: 3px solid #f3af17;
+    padding: 15px;
+    width: 200px;
+}
+
+.character-img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+}
+
+.char-desc {
+    font-size: 16px;
+    color: #ccc;
+}
+
+/* Merch Shop */
+.merch-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.merch-item {
+    background-color: #1a1a24;
+    border: 2px solid #00ffcc;
+    padding: 20px;
+    width: 220px;
+}
+
+.merch-placeholder {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.merch-price {
+    color: #ff0044;
+    font-weight: bold;
+    font-size: 26px;
+}
+
+/* Jumpscare & Knoppen */
 #secret-button {
     background-color: #ff0044;
     color: white;
@@ -78,28 +316,13 @@ nav {
     font-size: 24px;
     border: none;
     padding: 15px 30px;
-    margin-top: 40px;
     cursor: pointer;
-    box-shadow: 0 0 10px #ff0044;
 }
 
-#secret-button:hover {
-    background-color: #b30030;
-}
-
-/* Schermvullend geheim effect (Easter Egg) */
 #jumpscare-overlay {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    color: #fff;
-    font-size: 120px;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-    letter-spacing: 20px;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: #000; color: #fff; font-size: 120px;
+    justify-content: center; align-items: center; z-index: 999;
 }
