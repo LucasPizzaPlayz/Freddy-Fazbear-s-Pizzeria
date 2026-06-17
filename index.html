@@ -9,8 +9,8 @@
 </head>
 <body>
 
-    <!-- GEUPGRADE NAAR VERSIE V1.36 (JOUW EIGEN GEUPLOADTE PLAATJES) -->
-    <div class="version-tag">BETA V1.36</div>
+    <!-- GEUPGRADE NAAR VERSIE V1.38 (JOUW EIGEN FNAF GIF-BESTANDEN) -->
+    <div class="version-tag">BETA V1.38</div>
 
     <div class="checkerboard"></div>
 
@@ -24,12 +24,12 @@
         <a href="#menu" class="nav-button">Ons Menu</a>
         <a href="#reserveer" class="nav-button">Reserveren</a>
         <a href="#dieren" class="nav-button">Onze Dieren</a>
+        <a href="#cameras" class="nav-button">Beveiliging (CAMS)</a>
     </nav>
 
     <main>
         <!-- SECTIE 1: HOME -->
         <section id="home">
-            <!-- Laadt direct jouw voorkant.jpg uit je eigen GitHub map -->
             <div class="building-container">
                 <img src="./voorkant.jpg" alt="Pizzeria Voorkant" class="building-img">
             </div>
@@ -44,10 +44,9 @@
 
             <div class="welcome-box">
                 <h2>Welkom bij de gezelligste familiepizzeria!</h2>
-                <p>Kom langs voor onze heerlijke pizza's en zing gezellig mee met onze speciaal getrainde dieren! *Let op: de directie is niet verantwoordelijk voor schade aan eigendommen of vreemd gedrag van de animatronics nach middernacht.*</p>
+                <p>Kom langs voor onze heerlijke pizza's en zing gezellig mee met onze speciaal getrainde dieren!</p>
             </div>
 
-            <!-- Laadt jouw fnaf dining room.jpg and arcade hall.jpg uit je eigen map -->
             <div class="interior-section">
                 <h3>KIJKJE BINNENIN DE PIZZERIA</h3>
                 <div class="interior-gallery">
@@ -61,6 +60,9 @@
                     </div>
                 </div>
             </div>
+
+            <!-- JUMPSCARE KNOP: Schiet direct naar de target overlay hieronder -->
+            <a href="#jumpscare-overlay" class="secret-danger-btn">KLIK NIET OP DEZE KNOP</a>
         </section>
 
         <!-- SECTIE 2: ONS MENU -->
@@ -69,31 +71,23 @@
             <div class="menu-container">
                 <div class="menu-item" onclick="voegToeAanBestelling('Pizza (alle soorten)', 6.00)">
                     <h3>Pizza (alle soorten)</h3>
-                    <p class="food-desc">Onze klassieke, vettige pizzeria pizza.</p>
                     <span class="price">€6,00</span>
                 </div>
                 <div class="menu-item" onclick="voegToeAanBestelling('Poffertjes', 11.00)">
                     <h3>Poffertjes</h3>
                     <span class="price">€11,00</span>
                 </div>
-                <div class="menu-item" onclick="voegToeAanBestelling('Pannenkoeken', 6.00)">
-                    <h3>Pannenkoeken</h3>
-                    <span class="price">€6,00</span>
-                </div>
             </div>
-
             <div id="order-box">
                 <h3>JOUW BESTELLING</h3>
                 <ul id="order-list"></ul>
                 <p>Totaal: <span id="order-total">€0,00</span></p>
-                <button id="order-btn">Plaats Bestelling</button>
             </div>
         </section>
 
         <!-- SECTIE 3: RESERVEREN -->
         <section id="reserveer">
             <h2>RESERVEREN</h2>
-            <p class="location-text">📍 Locatie: Freddystraat 1987, Hurricane Utah</p>
             <form id="booking-form">
                 <div class="form-group">
                     <label>Je Naam:</label>
@@ -108,23 +102,65 @@
             <h2>ONTMOET ONZE DIEREN</h2>
             <div class="animatronic-container">
                 <div class="character-card">
-                    <!-- Laadt direct jouw animatronics.jpg uit je eigen map -->
                     <img src="./animatronics.jpg" alt="Animatronics Show Stage" class="character-img">
                     <h3>The Animatronics</h3>
-                    <p class="char-desc">De sterren van de show op het hoofdpodium. Pas op als de lichten uitgaan...</p>
                 </div>
             </div>
         </section>
+
+        <!-- SECTIE 5: BEVEILIGINGSCAMERAS (GEKOPPELD AN JOUW COOLE GIFS!) -->
+        <section id="cameras">
+            <h2>BEVEILIGINGSSYSTEEM</h2>
+            <p>Schakel live tussen de camerafeeds van je eigen geüploade animaties.</p>
+            
+            <div class="camera-monitor">
+                <input type="radio" name="cam-selector" id="select-cam1" checked>
+                <input type="radio" name="cam-selector" id="select-cam2">
+                <input type="radio" name="cam-selector" id="select-cam3">
+
+                <div id="camera-screen">
+                    <div class="scanlines"></div>
+                    <div class="static-noise"></div>
+                    
+                    <div class="feed" id="feed-1">
+                        <div class="camera-tag">CAM 1A - STAGE MAIN FEED</div>
+                        <img src="./fnaf.gif" class="cam-gif" alt="Stage Feed">
+                    </div>
+                    
+                    <div class="feed" id="feed-2">
+                        <div class="camera-tag">CAM 1B - PIRATE COVE RUN</div>
+                        <img src="./foxy running.gif" class="cam-gif" alt="Foxy Run Feed">
+                    </div>
+                    
+                    <div class="feed" id="feed-3">
+                        <div class="camera-tag">CAM 2A - PARTS & SERVICE</div>
+                        <img src="./zielige chica.gif" class="cam-gif" alt="Zielige Chica Feed">
+                    </div>
+                </div>
+
+                <div class="camera-controls">
+                    <label for="select-cam1" class="cam-label-btn">CAM 1A</label>
+                    <label for="select-cam2" class="cam-label-btn">CAM 1B</label>
+                    <label for="select-cam3" class="cam-label-btn">CAM 2A</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- GOLDEN FREDDY JUMPSCARE OVERLAY (Met jouw robots staring.gif!) -->
+        <a href="#home" id="jumpscare-overlay">
+            <div class="jumpscare-wrapper">
+                <img src="./robots staring.gif" alt="Golden Freddy Jumpscare" id="jumpscare-gif-file">
+                <div id="jumpscare-content">IT'S ME</div>
+            </div>
+        </a>
     </main>
 
     <script>
         let totaalPrijs = 0;
-
         function voegToeAanBestelling(itemNaam, prijs) {
             totaalPrijs += prijs;
             const orderList = document.getElementById('order-list');
             const orderTotal = document.getElementById('order-total');
-            
             if (orderList && orderTotal) {
                 const li = document.createElement('li');
                 li.textContent = itemNaam + " - €" + prijs.toFixed(2).replace('.', ',');
@@ -132,19 +168,6 @@
                 orderTotal.textContent = "€" + totaalPrijs.toFixed(2).replace('.', ',');
             }
         }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const orderBtn = document.getElementById('order-btn');
-            if (orderBtn) {
-                orderBtn.addEventListener('click', function() {
-                    if (totaalPrijs === 0) { alert("Je mandje is leeg!"); return; }
-                    alert("Bestelling doorgegeven aan Chica! 🍕");
-                    document.getElementById('order-list').innerHTML = ''; 
-                    totaalPrijs = 0; 
-                    document.getElementById('order-total').textContent = '€0,00';
-                });
-            }
-        });
     </script>
 </body>
 </html>
