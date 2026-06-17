@@ -9,8 +9,8 @@
 </head>
 <body>
 
-    <!-- BIJGEWERKT NAAR VERSIE V1.21 -->
-    <div class="version-tag">BETA V1.21</div>
+    <!-- BIJGEWERKT NAAR VERSIE V1.22 -->
+    <div class="version-tag">BETA V1.22</div>
 
     <div class="checkerboard"></div>
 
@@ -61,45 +61,53 @@
             <button id="secret-button" style="margin-top: 40px;">KLIK NIET OP DEZE KNOP</button>
         </section>
 
-        <!-- SECTIE 2: ONS MENU (NU MET EXTRA FNAF ETEN!) -->
+        <!-- SECTIE 2: ONS MENU (NU MET GRIEzeligE BESCHRIJVINGEN) -->
         <section id="menu">
             <h2>FREDDY'S PIZZA MENU</h2>
             <div class="menu-container">
                 <div class="menu-item" onclick="voegToeAanBestelling('Pizza (alle soorten)', 6.00)">
                     <h3>Pizza (alle soorten)</h3>
+                    <p class="food-desc">Onze klassieke, vettige pizzeria pizza. Versgebakken (behalve tussen 00:00 en 06:00 uur).</p>
                     <span class="price">€6,00</span>
                 </div>
                 <div class="menu-item" onclick="voegToeAanBestelling('Poffertjes', 11.00)">
                     <h3>Poffertjes</h3>
+                    <p class="food-desc">Een flinke berg poffertjes met een mysterieuze klont smeltende boter. Favoriet van Bonnie!</p>
                     <span class="price">€11,00</span>
                 </div>
                 <div class="menu-item" onclick="voegToeAanBestelling('Pannenkoeken', 6.00)">
                     <h3>Pannenkoeken</h3>
+                    <p class="food-desc">Groot, goudbruin en rond alsof ze rechtstreeks uit Chica's keuken komen vliegen.</p>
                     <span class="price">€6,00</span>
                 </div>
                 <div class="menu-item" onclick="voegToeAanBestelling('Foxy Ice Cream', 3.00)">
                     <h3>Foxy Ice Cream</h3>
+                    <p class="food-desc">Ijskoud piratenavontuur in een bakje. Pas op voor een brainfreeze, net zo scherp als Foxy's haak!</p>
                     <span class="price">€3,00</span>
                 </div>
                 <div class="menu-item" onclick="voegToeAanBestelling('Freddy Faz Cola', 4.00)">
                     <h3>Freddy Faz Cola</h3>
+                    <p class="food-desc">Vol met cafeïne en suiker om je gegarandeerd de hele nachtwacht wakker te houden.</p>
                     <span class="price">€4,00</span>
                 </div>
                 <div class="menu-item" onclick="voegToeAanBestelling('Chica Cupcake', 6.00)">
                     <h3>Chica Cupcake</h3>
+                    <p class="food-desc">Geïnspireerd op Chica's roze Cupcake. De oogjes lijken je overal in het restaurant te volgen...</p>
                     <span class="price">€6,00</span>
                 </div>
-                <!-- NIEUWE DISHES -->
                 <div class="menu-item" onclick="voegToeAanBestelling('Foxy\'s Pirate Popcorn', 2.00)">
                     <h3>Foxy's Pirate Popcorn</h3>
+                    <p class="food-desc">Gepofte maïs met een gevaarlijk rode, lichtpittige kruidenmix uit Pirate Cove.</p>
                     <span class="price">€2,00</span>
                 </div>
                 <div class="menu-item" onclick="voegToeAanBestelling('Golden Freddy Wafels', 5.00)">
                     <h3>Golden Freddy Wafels</h3>
+                    <p class="food-desc">Goudgele, warme wafels met extra veel zoete siroop. Ze verschijnen en verdwijnen snel van je bord!</p>
                     <span class="price">€5,00</span>
                 </div>
                 <div class="menu-item" onclick="voegToeAanBestelling('Bonnie\'s Rockstar Brownie', 4.00)">
                     <h3>Bonnie's Rockstar Brownie</h3>
+                    <p class="food-desc">Een diepdonkere, zware chocoladebrownie versierd met felpaarse spikkels en gitaar-glitters.</p>
                     <span class="price">€4,00</span>
                 </div>
             </div>
@@ -178,16 +186,3 @@
         </section>
 
         <!-- SECTIE 6: BEVEILIGINGSCAMERAS -->
-        <section id="cameras">
-            <h2>BEVEILIGINGSSYSTEEM</h2>
-            <p>Houd de pizzeria in de gaten vanaf je Chromebook.</p>
-            <div class="camera-monitor">
-                <div class="scanlines"></div>
-                <div id="camera-screen">
-                    <div class="camera-tag" id="cam-name">CAM 1A - STAGE</div>
-                    <div class="static-noise" id="cam-noise"></div>
-                    <img src="https://wikimedia.org" id="cam-view" alt="Camera Beeld">
-                </div>
-                <div class="camera-controls">
-                    <button class="cam-btn active-cam" onclick="switchCamera('CAM 1A', 'https://wikimedia.org', this)">CAM 1A</button>
-                    <button class="cam-btn" onclick="switchCamera('CAM 1B', 'https://wikimedia.org', this)">CAM 1B</button>
