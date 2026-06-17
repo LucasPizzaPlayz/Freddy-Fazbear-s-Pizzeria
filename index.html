@@ -9,8 +9,8 @@
 </head>
 <body>
 
-    <!-- BIJGEWERKT NAAR V1.11 -->
-    <div class="version-tag">BETA V1.11</div>
+    <!-- BIJGEWERKT NAAR JOUW VERSIE V1.20 -->
+    <div class="version-tag">BETA V1.20</div>
 
     <div class="checkerboard"></div>
 
@@ -120,7 +120,7 @@
             </form>
         </section>
 
-        <!-- SECTIE 4: ONZE DIEREN (MET GRIEzeligE RETRO TEXTEN) -->
+        <!-- SECTIE 4: ONZE DIEREN -->
         <section id="dieren">
             <h2>ONTMOET ONZE DIEREN</h2>
             <div class="animatronic-container">
@@ -200,3 +200,4 @@
             totaalPrijs += prijs;
             const li = document.createElement('li');
             li.textContent = `${itemNaam} - €${prijs.toFixed(2).replace('.', ',')}`;
+            orderList.appendChild(li);
