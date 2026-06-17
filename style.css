@@ -176,6 +176,7 @@ main section {
 
 /* LIVE CAMERA-MONITOR SYSTEM STYLING */
 .camera-monitor {
+    display: block !important; /* Dwingt de monitor zichtbaar te zijn */
     max-width: 650px;
     margin: 20px auto;
     background-color: #000;
@@ -184,7 +185,12 @@ main section {
     box-shadow: 0 0 30px rgba(0,255,204,0.3);
 }
 
-input[name="cam-selector"] { display: none !important; }
+/* Verberg ALLEEN de onzichtbare radio-inputs, hinder de monitor niet */
+main input[type="radio"] { 
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
 
 #camera-screen { width: 100%; height: 380px; position: relative; overflow: hidden; background-color: #05050a; }
 .feed { display: none; width: 100%; height: 100%; }
@@ -197,6 +203,7 @@ input[name="cam-selector"] { display: none !important; }
 .cam-label-btn { background-color: #111; color: #fff; border: 2px solid #555; font-family: 'VT323', monospace; font-size: 20px; padding: 5px 15px; cursor: pointer; display: inline-block; }
 .cam-label-btn:hover { background-color: #ff0044; border-color: #fff; }
 
+/* De CSS koppeling activeert de juiste schermen */
 #select-cam1:checked ~ #camera-screen #feed-1 { display: block !important; }
 #select-cam2:checked ~ #camera-screen #feed-2 { display: block !important; }
 #select-cam3:checked ~ #camera-screen #feed-3 { display: block !important; }
