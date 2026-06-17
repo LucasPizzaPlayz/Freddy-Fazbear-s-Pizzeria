@@ -9,8 +9,8 @@
 </head>
 <body>
 
-    <!-- BIJGEWERKT NAAR JOUW VERSIE V1.20 -->
-    <div class="version-tag">BETA V1.20</div>
+    <!-- BIJGEWERKT NAAR VERSIE V1.21 -->
+    <div class="version-tag">BETA V1.21</div>
 
     <div class="checkerboard"></div>
 
@@ -61,7 +61,7 @@
             <button id="secret-button" style="margin-top: 40px;">KLIK NIET OP DEZE KNOP</button>
         </section>
 
-        <!-- SECTIE 2: ONS MENU -->
+        <!-- SECTIE 2: ONS MENU (NU MET EXTRA FNAF ETEN!) -->
         <section id="menu">
             <h2>FREDDY'S PIZZA MENU</h2>
             <div class="menu-container">
@@ -88,6 +88,19 @@
                 <div class="menu-item" onclick="voegToeAanBestelling('Chica Cupcake', 6.00)">
                     <h3>Chica Cupcake</h3>
                     <span class="price">€6,00</span>
+                </div>
+                <!-- NIEUWE DISHES -->
+                <div class="menu-item" onclick="voegToeAanBestelling('Foxy\'s Pirate Popcorn', 2.00)">
+                    <h3>Foxy's Pirate Popcorn</h3>
+                    <span class="price">€2,00</span>
+                </div>
+                <div class="menu-item" onclick="voegToeAanBestelling('Golden Freddy Wafels', 5.00)">
+                    <h3>Golden Freddy Wafels</h3>
+                    <span class="price">€5,00</span>
+                </div>
+                <div class="menu-item" onclick="voegToeAanBestelling('Bonnie\'s Rockstar Brownie', 4.00)">
+                    <h3>Bonnie's Rockstar Brownie</h3>
+                    <span class="price">€4,00</span>
                 </div>
             </div>
 
@@ -142,7 +155,7 @@
                 <div class="character-card">
                     <div class="character-img-placeholder">🦊</div>
                     <h3>Foxy</h3>
-                    <p class="char-desc">De beruchte piratenvos uit Pirate Cove. Vanwege technische mankementen is hij momenteel buiten werking, maar hij kan onverwacht heel hard naar je toe rennen.</p>
+                    <p class="char-desc">De beruchte piratenvos uit Pirate Cove. Vanwege technische mankementen is hun robot momenteel buiten werking, maar ze kunnen heel onverwacht hard rennen.</p>
                 </div>
             </div>
         </section>
@@ -178,26 +191,3 @@
                 <div class="camera-controls">
                     <button class="cam-btn active-cam" onclick="switchCamera('CAM 1A', 'https://wikimedia.org', this)">CAM 1A</button>
                     <button class="cam-btn" onclick="switchCamera('CAM 1B', 'https://wikimedia.org', this)">CAM 1B</button>
-                    <button class="cam-btn" onclick="switchCamera('CAM 2A', 'https://wikimedia.org', this)">CAM 2A</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Golden Freddy Jumpscare Overlay -->
-        <div id="jumpscare-overlay">
-            <div id="jumpscare-content">🟨 IT'S ME 🟨</div>
-        </div>
-    </main>
-
-    <div class="checkerboard" style="margin-top: 50px;"></div>
-
-    <script>
-        let totaalPrijs = 0;
-        const orderList = document.getElementById('order-list');
-        const orderTotal = document.getElementById('order-total');
-
-        function voegToeAanBestelling(itemNaam, prijs) {
-            totaalPrijs += prijs;
-            const li = document.createElement('li');
-            li.textContent = `${itemNaam} - €${prijs.toFixed(2).replace('.', ',')}`;
-            orderList.appendChild(li);
