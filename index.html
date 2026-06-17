@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freddy Fazbear's Pizzeria</title>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- Retro arcade lettertype voor de FNaF sfeer -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- GEUPGRADE NAAR VERSIE V1.38 (JOUW EIGEN FNAF GIF-BESTANDEN) -->
+    <!-- VERSIE V1.38 -->
     <div class="version-tag">BETA V1.38</div>
 
     <div class="checkerboard"></div>
@@ -61,7 +64,7 @@
                 </div>
             </div>
 
-            <!-- JUMPSCARE KNOP: Schiet direct naar de target overlay hieronder -->
+            <!-- JUMPSCARE KNOP -->
             <a href="#jumpscare-overlay" class="secret-danger-btn">KLIK NIET OP DEZE KNOP</a>
         </section>
 
@@ -90,7 +93,7 @@
             <h2>RESERVEREN</h2>
             <form id="booking-form">
                 <div class="form-group">
-                    <label>Je Naam:</label>
+                    <label for="booking-name">Je Naam:</label>
                     <input type="text" id="booking-name" required placeholder="Bijv. Mike Schmidt">
                 </div>
                 <button type="submit" class="submit-btn">Reserveer Tafel</button>
@@ -108,19 +111,23 @@
             </div>
         </section>
 
-        <!-- SECTIE 5: BEVEILIGINGSCAMERAS (GEKOPPELD AN JOUW COOLE GIFS!) -->
+        <!-- SECTIE 5: INTERACTIEF BEVEILIGINGSSYSTEEM -->
         <section id="cameras">
             <h2>BEVEILIGINGSSYSTEEM</h2>
             <p>Schakel live tussen de camerafeeds van je eigen geüploade animaties.</p>
             
+            <!-- Batterij display -->
+            <div id="power-indicator">⚡ POWER: <span id="power-percent">100</span>%</div>
+            
             <div class="camera-monitor">
-                <input type="radio" name="cam-selector" id="select-cam1" checked>
-                <input type="radio" name="cam-selector" id="select-cam2">
-                <input type="radio" name="cam-selector" id="select-cam3">
+                <!-- Onclick functies triggeren de JavaScript storing -->
+                <input type="radio" name="cam-selector" id="select-cam1" checked onclick="wisselCamera()">
+                <input type="radio" name="cam-selector" id="select-cam2" onclick="wisselCamera()">
+                <input type="radio" name="cam-selector" id="select-cam3" onclick="wisselCamera()">
 
                 <div id="camera-screen">
                     <div class="scanlines"></div>
-                    <div class="static-noise"></div>
+                    <div class="static-noise" id="camera-static"></div>
                     
                     <div class="feed" id="feed-1">
                         <div class="camera-tag">CAM 1A - STAGE MAIN FEED</div>
@@ -146,7 +153,7 @@
             </div>
         </section>
 
-        <!-- GOLDEN FREDDY JUMPSCARE OVERLAY (Met jouw robots staring.gif!) -->
+        <!-- GOLDEN FREDDY JUMPSCARE OVERLAY -->
         <a href="#home" id="jumpscare-overlay">
             <div class="jumpscare-wrapper">
                 <img src="./robots staring.gif" alt="Golden Freddy Jumpscare" id="jumpscare-gif-file">
@@ -156,6 +163,7 @@
     </main>
 
     <script>
+        // Bestelsysteem functionaliteit
         let totaalPrijs = 0;
         function voegToeAanBestelling(itemNaam, prijs) {
             totaalPrijs += prijs;
@@ -168,6 +176,44 @@
                 orderTotal.textContent = "€" + totaalPrijs.toFixed(2).replace('.', ',');
             }
         }
+
+        // Voorkom pagina-refresh bij reserveren
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Reservering succesvol ontvangen... als je durft te komen!');
+        });
+
+        // Functie voor de camerastoring bij het wisselen
+        function wisselCamera() {
+            const staticNoise = document.getElementById('camera-static');
+            if (staticNoise) {
+                staticNoise.classList.add('camera-glitch');
+                setTimeout(() => {
+                    staticNoise.classList.remove('camera-glitch');
+                }, 250); // Duur van de glitch in milliseconden
+            }
+        }
+
+        // Mechaniek voor de leeglopende batterij
+        let stroom = 100;
+        const powerInterval = setInterval(() => {
+            stroom -= 1;
+            const powerPercent = document.getElementById('power-percent');
+            
+            if (powerPercent) {
+                powerPercent.textContent = stroom;
+            }
+
+            // Stroom is op: scherm valt uit
+            if (stroom <= 0) {
+                clearInterval(powerInterval);
+                const cameraScreen = document.getElementById('camera-screen');
+                if (cameraScreen) {
+                    cameraScreen.style.backgroundColor = '#000';
+                    cameraScreen.innerHTML = '<div style="color:red; font-size:40px; padding-top:150px; font-family:\'VT323\', monospace;">POWER OUTAGE</div>';
+                }
+            }
+        }, 5000); // Verlaagt de stroom elke 5 seconden met 1%
     </script>
 </body>
 </html>
