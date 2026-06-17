@@ -9,8 +9,8 @@
 </head>
 <body>
 
-    <!-- BIJGEWERKT NAAR VERSIE V1.22 -->
-    <div class="version-tag">BETA V1.22</div>
+    <!-- BIJGEWERKT NAAR VERSIE V1.24 -->
+    <div class="version-tag">BETA V1.24</div>
 
     <div class="checkerboard"></div>
 
@@ -61,7 +61,7 @@
             <button id="secret-button" style="margin-top: 40px;">KLIK NIET OP DEZE KNOP</button>
         </section>
 
-        <!-- SECTIE 2: ONS MENU (NU MET GRIEzeligE BESCHRIJVINGEN) -->
+        <!-- SECTIE 2: ONS MENU -->
         <section id="menu">
             <h2>FREDDY'S PIZZA MENU</h2>
             <div class="menu-container">
@@ -97,17 +97,14 @@
                 </div>
                 <div class="menu-item" onclick="voegToeAanBestelling('Foxy\'s Pirate Popcorn', 2.00)">
                     <h3>Foxy's Pirate Popcorn</h3>
-                    <p class="food-desc">Gepofte maïs met een gevaarlijk rode, lichtpittige kruidenmix uit Pirate Cove.</p>
                     <span class="price">€2,00</span>
                 </div>
                 <div class="menu-item" onclick="voegToeAanBestelling('Golden Freddy Wafels', 5.00)">
                     <h3>Golden Freddy Wafels</h3>
-                    <p class="food-desc">Goudgele, warme wafels met extra veel zoete siroop. Ze verschijnen en verdwijnen snel van je bord!</p>
                     <span class="price">€5,00</span>
                 </div>
                 <div class="menu-item" onclick="voegToeAanBestelling('Bonnie\'s Rockstar Brownie', 4.00)">
                     <h3>Bonnie's Rockstar Brownie</h3>
-                    <p class="food-desc">Een diepdonkere, zware chocoladebrownie versierd met felpaarse spikkels en gitaar-glitters.</p>
                     <span class="price">€4,00</span>
                 </div>
             </div>
@@ -116,7 +113,7 @@
                 <h3>JOUW BESTELLING</h3>
                 <ul id="order-list"></ul>
                 <p>Totaal: <span id="order-total">€0,00</span></p>
-                <button id="order-btn" onclick="rondBestellingAf()">Plaats Bestelling</button>
+                <button id="order-btn">Plaats Bestelling</button>
             </div>
         </section>
 
@@ -124,18 +121,18 @@
         <section id="reserveer">
             <h2>RESERVEREN</h2>
             <p class="location-text">📍 Locatie: Freddystraat 1987, Hurricane Utah</p>
-            <form id="booking-form" onsubmit="bevestigReservering(event)">
+            <form id="booking-form">
                 <div class="form-group">
                     <label>Je Naam:</label>
-                    <input type="text" required placeholder="Bijv. Mike Schmidt">
+                    <input type="text" id="booking-name" required placeholder="Bijv. Mike Schmidt">
                 </div>
                 <div class="form-group">
                     <label>Aantal Personen:</label>
-                    <input type="number" min="1" max="10" required value="2">
+                    <input type="number" id="booking-guests" min="1" max="10" required value="2">
                 </div>
                 <div class="form-group">
                     <label>Welke Datum:</label>
-                    <input type="date" required>
+                    <input type="date" id="booking-date" required>
                 </div>
                 <button type="submit" class="submit-btn">Reserveer Tafel</button>
             </form>
@@ -185,4 +182,12 @@
             </div>
         </section>
 
-        <!-- SECTIE 6: BEVEILIGINGSCAMERAS -->
+        <!-- SECTIE 6: BEVEILIGINGSCAMERAS (NU MET ECHTE LIVE-ANIMATIE!) -->
+        <section id="cameras">
+            <h2>BEVEILIGINGSSYSTEEM</h2>
+            <p>Houd de pizzeria live in de gaten vanaf je Chromebook.</p>
+            <div class="camera-monitor">
+                <div class="scanlines"></div>
+                <div id="camera-screen">
+                    <div class="camera-tag" id="cam-name">CAM 1A - SHOW STAGE</div>
+                    <div class="static-noise" id="cam-noise"></div>
