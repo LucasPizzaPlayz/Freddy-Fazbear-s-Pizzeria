@@ -9,8 +9,8 @@
 </head>
 <body>
 
-    <!-- NIEUW: De Versie-badge rechtsboven in de hoek -->
-    <div class="version-tag">BETA V1.9</div>
+    <!-- BIJGEWERKT NAAR V1.11 -->
+    <div class="version-tag">BETA V1.11</div>
 
     <div class="checkerboard"></div>
 
@@ -120,25 +120,29 @@
             </form>
         </section>
 
-        <!-- SECTIE 4: ONZE DIEREN -->
+        <!-- SECTIE 4: ONZE DIEREN (MET GRIEzeligE RETRO TEXTEN) -->
         <section id="dieren">
             <h2>ONTMOET ONZE DIEREN</h2>
             <div class="animatronic-container">
                 <div class="character-card">
                     <img src="https://wikimedia.org" alt="Freddy" class="character-img">
                     <h3>Freddy Fazbear</h3>
+                    <p class="char-desc">De ster en hoofdzanger van de show. Hij draagt zijn iconische hoge hoed, maar pas op als de lichten uitgaan... dan hoor je zijn muziekdoosje knetteren.</p>
                 </div>
                 <div class="character-card">
                     <img src="https://wikimedia.org" alt="Bonnie" class="character-img">
                     <h3>Bonnie</h3>
+                    <p class="char-desc">De rockende paarse haas die de gitaar bespeelt op het podium. Hij is vaak de eerste die 's nachts actief wordt en door de donkere gangen dwaalt.</p>
                 </div>
                 <div class="character-card">
                     <img src="https://wikimedia.org" alt="Chica" class="character-img">
                     <h3>Chica</h3>
+                    <p class="char-desc">De vrolijke kip uit de keuken die houdt van eten. Ze draagt haar 'LET'S EAT!' slabber en houdt altijd haar roze, starende Cupcake met oogjes vast.</p>
                 </div>
                 <div class="character-card">
                     <div class="character-img-placeholder">🦊</div>
                     <h3>Foxy</h3>
+                    <p class="char-desc">De beruchte piratenvos uit Pirate Cove. Vanwege technische mankementen is hij momenteel buiten werking, maar hij kan onverwacht heel hard naar je toe rennen.</p>
                 </div>
             </div>
         </section>
@@ -148,12 +152,12 @@
             <h2>FAZBEAR MERCHANDISE</h2>
             <div class="merch-container">
                 <div class="merch-item">
-                    <img src="https://media-amazon.com" alt="Freddy Pluche" class="merch-img">
+                    <img src="https://wikimedia.org" alt="Freddy Pluche" class="merch-img">
                     <h3>Freddy Pluche</h3>
                     <span class="merch-price">€19,99</span>
                 </div>
                 <div class="merch-item">
-                    <img src="https://media-amazon.com" alt="Chica Pluche" class="merch-img">
+                    <div class="character-img-placeholder">🧁</div>
                     <h3>Chica Pluche</h3>
                     <span class="merch-price">€14,99</span>
                 </div>
@@ -167,7 +171,7 @@
             <div class="camera-monitor">
                 <div class="scanlines"></div>
                 <div id="camera-screen">
-                    <div class="camera-tag" id="cam-name">CAM 1A - SHOW STAGE</div>
+                    <div class="camera-tag" id="cam-name">CAM 1A - STAGE</div>
                     <div class="static-noise" id="cam-noise"></div>
                     <img src="https://wikimedia.org" id="cam-view" alt="Camera Beeld">
                 </div>
@@ -196,20 +200,3 @@
             totaalPrijs += prijs;
             const li = document.createElement('li');
             li.textContent = `${itemNaam} - €${prijs.toFixed(2).replace('.', ',')}`;
-            orderList.appendChild(li);
-            orderTotal.textContent = `€${totaalPrijs.toFixed(2).replace('.', ',')}`;
-        }
-
-        function rondBestellingAf() {
-            if (totaalPrijs === 0) { alert("Je mandje is leeg!"); return; }
-            alert("Bestelling doorgegeven aan Chica! 🍕");
-            orderList.innerHTML = ''; totaalPrijs = 0; orderTotal.textContent = '€0,00';
-        }
-
-        function bevestigReservering(event) {
-            event.preventDefault();
-            alert("Reservering gelukt op Freddystraat 1987! ⚠️");
-            document.getElementById('booking-form').reset();
-        }
-
-        function switchCamera(camName, imgUrl, element) {
