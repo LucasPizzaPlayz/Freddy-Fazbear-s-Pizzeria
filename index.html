@@ -9,6 +9,9 @@
 </head>
 <body>
 
+    <!-- NIEUW: De Versie-badge rechtsboven in de hoek -->
+    <div class="version-tag">BETA V1.9</div>
+
     <div class="checkerboard"></div>
 
     <header>
@@ -22,6 +25,7 @@
         <a href="#reserveer" class="nav-button">Reserveren</a>
         <a href="#dieren" class="nav-button">Onze Dieren</a>
         <a href="#merch" class="nav-button">Merch</a>
+        <a href="#cameras" class="nav-button">Beveiliging (CAMS)</a>
     </nav>
 
     <main>
@@ -35,7 +39,6 @@
                 ⚠️ WAARSCHUWING: BETREDEN OP EIGEN RISICO! ⚠️
             </div>
 
-            <!-- HIER STAAT HIJ NU COMPLEET EN VEILIG -->
             <div class="phone-box">
                 📞 BEL DE NACHTWACHT: <a href="tel:0612345678">06 12345678</a>
             </div>
@@ -121,10 +124,22 @@
         <section id="dieren">
             <h2>ONTMOET ONZE DIEREN</h2>
             <div class="animatronic-container">
-                <div class="character-card"><h3>Freddy Fazbear</h3></div>
-                <div class="character-card"><h3>Bonnie</h3></div>
-                <div class="character-card"><h3>Chica</h3></div>
-                <div class="character-card"><h3>Foxy</h3></div>
+                <div class="character-card">
+                    <img src="https://wikimedia.org" alt="Freddy" class="character-img">
+                    <h3>Freddy Fazbear</h3>
+                </div>
+                <div class="character-card">
+                    <img src="https://wikimedia.org" alt="Bonnie" class="character-img">
+                    <h3>Bonnie</h3>
+                </div>
+                <div class="character-card">
+                    <img src="https://wikimedia.org" alt="Chica" class="character-img">
+                    <h3>Chica</h3>
+                </div>
+                <div class="character-card">
+                    <div class="character-img-placeholder">🦊</div>
+                    <h3>Foxy</h3>
+                </div>
             </div>
         </section>
 
@@ -132,13 +147,42 @@
         <section id="merch">
             <h2>FAZBEAR MERCHANDISE</h2>
             <div class="merch-container">
-                <div class="merch-item"><h3>Security Shirt</h3><span class="merch-price">€24,99</span></div>
-                <div class="merch-item"><h3>Freddy Pluche</h3><span class="merch-price">€19,99</span></div>
-                <div class="merch-item"><h3>Chica Pluche</h3><span class="merch-price">€14,99</span></div>
+                <div class="merch-item">
+                    <img src="https://media-amazon.com" alt="Freddy Pluche" class="merch-img">
+                    <h3>Freddy Pluche</h3>
+                    <span class="merch-price">€19,99</span>
+                </div>
+                <div class="merch-item">
+                    <img src="https://media-amazon.com" alt="Chica Pluche" class="merch-img">
+                    <h3>Chica Pluche</h3>
+                    <span class="merch-price">€14,99</span>
+                </div>
             </div>
         </section>
 
-        <div id="jumpscare-overlay">IT'S ME</div>
+        <!-- SECTIE 6: BEVEILIGINGSCAMERAS -->
+        <section id="cameras">
+            <h2>BEVEILIGINGSSYSTEEM</h2>
+            <p>Houd de pizzeria in de gaten vanaf je Chromebook.</p>
+            <div class="camera-monitor">
+                <div class="scanlines"></div>
+                <div id="camera-screen">
+                    <div class="camera-tag" id="cam-name">CAM 1A - SHOW STAGE</div>
+                    <div class="static-noise" id="cam-noise"></div>
+                    <img src="https://wikimedia.org" id="cam-view" alt="Camera Beeld">
+                </div>
+                <div class="camera-controls">
+                    <button class="cam-btn active-cam" onclick="switchCamera('CAM 1A', 'https://wikimedia.org', this)">CAM 1A</button>
+                    <button class="cam-btn" onclick="switchCamera('CAM 1B', 'https://wikimedia.org', this)">CAM 1B</button>
+                    <button class="cam-btn" onclick="switchCamera('CAM 2A', 'https://wikimedia.org', this)">CAM 2A</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Golden Freddy Jumpscare Overlay -->
+        <div id="jumpscare-overlay">
+            <div id="jumpscare-content">🟨 IT'S ME 🟨</div>
+        </div>
     </main>
 
     <div class="checkerboard" style="margin-top: 50px;"></div>
@@ -168,14 +212,4 @@
             document.getElementById('booking-form').reset();
         }
 
-        const btn = document.getElementById('secret-button');
-        const overlay = document.getElementById('jumpscare-overlay');
-        if(btn) {
-            btn.addEventListener('click', () => {
-                overlay.style.display = 'flex';
-                setTimeout(() => { overlay.style.display = 'none'; }, 1200);
-            });
-        }
-    </script>
-</body>
-</html>
+        function switchCamera(camName, imgUrl, element) {
