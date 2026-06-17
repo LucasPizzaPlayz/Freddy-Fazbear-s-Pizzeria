@@ -144,6 +144,14 @@ main section {
 .menu-item h3 { margin: 0; color: #fff; }
 .price { position: absolute; right: 20px; top: 20px; font-size: 28px; color: #f3af17; }
 
+.food-desc {
+    font-size: 16px;
+    color: #aaaaaa;
+    margin: 5px 0 0 0;
+    max-width: 80%;
+    line-height: 1.2;
+}
+
 #order-box { background-color: #fff; color: #000; padding: 20px; max-width: 400px; margin: 20px auto; border: 2px dashed #000; }
 #order-btn { background-color: #000; color: #fff; border: none; font-family: 'VT323', monospace; font-size: 22px; padding: 10px; width: 100%; cursor: pointer; }
 
@@ -166,6 +174,7 @@ main section {
     text-align: left;
 }
 
+/* LIVE CAMERA-MONITOR SYSTEM STYLING */
 .camera-monitor {
     max-width: 650px;
     margin: 20px auto;
