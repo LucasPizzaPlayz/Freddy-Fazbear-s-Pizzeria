@@ -9,8 +9,8 @@
 </head>
 <body>
 
-    <!-- BIJGEWERKT NAAR VERSIE V1.33 (REPAREERDE CSS CAM SELECTIE) -->
-    <div class="version-tag">BETA V1.33</div>
+    <!-- BIJGEWERKT NAAR VERSIE V1.34 (STABELE CHROMEBOOK VEILIGE IMAGES) -->
+    <div class="version-tag">BETA V1.34</div>
 
     <div class="checkerboard"></div>
 
@@ -25,12 +25,12 @@
         <a href="#reserveer" class="nav-button">Reserveren</a>
         <a href="#dieren" class="nav-button">Onze Dieren</a>
         <a href="#merch" class="nav-button">Merch</a>
-        <a href="#cameras" class="nav-button">Beveiliging (CAMS)</a>
     </nav>
 
     <main>
         <!-- SECTIE 1: HOME -->
         <section id="home">
+            <!-- Officiële, stabiele retro pizzeria foto (Voorkant) -->
             <div class="building-container">
                 <img src="https://wikimedia.org" alt="Pizzeria Voorkant" class="building-img">
             </div>
@@ -48,6 +48,7 @@
                 <p>Kom langs voor onze heerlijke pizza's en zing gezellig mee met onze speciaal getrainde dieren! *Let op: de directie is niet verantwoordelijk voor schade aan eigendommen of vreemd gedrag van de animatronics na middernacht.*</p>
             </div>
 
+            <!-- Officiële retro arcade arcade-gang foto -->
             <div class="interior-section">
                 <h3>KIJKJE BINNENIN DE PIZZERIA</h3>
                 <div class="interior-gallery">
@@ -57,8 +58,6 @@
                     </div>
                 </div>
             </div>
-
-            <a href="#jumpscare-overlay" class="secret-danger-btn">KLIK NIET OP DEZE KNOP</a>
         </section>
 
         <!-- SECTIE 2: ONS MENU -->
@@ -97,14 +96,17 @@
                 </div>
                 <div class="menu-item" onclick="voegToeAanBestelling('Foxy\'s Pirate Popcorn', 2.00)">
                     <h3>Foxy's Pirate Popcorn</h3>
+                    <p class="food-desc">Gepofte maïs met een gevaarlijk rode, lichtpittige kruidenmix uit Pirate Cove.</p>
                     <span class="price">€2,00</span>
                 </div>
                 <div class="menu-item" onclick="voegToeAanBestelling('Golden Freddy Wafels', 5.00)">
                     <h3>Golden Freddy Wafels</h3>
+                    <p class="food-desc">Goudgele, warme wafels met extra veel zoete siroop. Ze verschijnen en verdwijnen snel van je bord!</p>
                     <span class="price">€5,00</span>
                 </div>
                 <div class="menu-item" onclick="voegToeAanBestelling('Bonnie\'s Rockstar Brownie', 4.00)">
                     <h3>Bonnie's Rockstar Brownie</h3>
+                    <p class="food-desc">Een diepdonkere, zware chocoladebrownie versierd met felpaarse spikkels en gitaar-glitters.</p>
                     <span class="price">€4,00</span>
                 </div>
             </div>
@@ -150,7 +152,7 @@
                 <div class="character-card">
                     <img src="https://wikimedia.org" alt="Bonnie" class="character-img">
                     <h3>Bonnie</h3>
-                    <p class="char-desc">De rockende paarse haas die de gitaar bespeelt op het podium. Hij is vaak de eerste die 's nachts actief wordt en door de donkere gangen dwalen.</p>
+                    <p class="char-desc">De rockende paarse haas die de gitaar bespeelt op het podium. Hij is vaak de eerste die 's nachts actief wordt en door de donkere gangen dwaalt.</p>
                 </div>
                 <div class="character-card">
                     <img src="https://wikimedia.org" alt="Chica" class="character-img">
@@ -158,7 +160,7 @@
                     <p class="char-desc">De vrolijke kip uit de keuken die houdt van eten. Ze draagt haar 'LET'S EAT!' slabber en houdt altijd haar roze, starende Cupcake met oogjes vast.</p>
                 </div>
                 <div class="character-card">
-                    <div class="character-img-placeholder">🦊</div>
+                    <div class="character-img-placeholder">🦊🏴‍☠️</div>
                     <h3>Foxy</h3>
                     <p class="char-desc">De beruchte piratenvos uit Pirate Cove. Vanwege technische mankementen is hun robot momenteel buiten werking, maar ze kunnen heel onverwacht hard rennen.</p>
                 </div>
@@ -170,24 +172,19 @@
             <h2>FAZBEAR MERCHANDISE</h2>
             <div class="merch-container">
                 <div class="merch-item">
-                    <img src="https://wikimedia.org" alt="Freddy Pluche" class="merch-img">
+                    <img src="https://media-amazon.com" alt="Freddy Pluche" class="merch-img">
                     <h3>Freddy Pluche</h3>
                     <span class="merch-price">€19,99</span>
                 </div>
                 <div class="merch-item">
-                    <div class="character-img-placeholder">🧁</div>
+                    <img src="https://media-amazon.com" alt="Chica Pluche" class="merch-img">
                     <h3>Chica Pluche</h3>
                     <span class="merch-price">€14,99</span>
                 </div>
             </div>
         </section>
+    </main>
 
-        <!-- SECTIE 6: BEVEILIGINGSCAMERAS -->
-        <section id="cameras">
-            <h2>BEVEILIGINGSSYSTEEM</h2>
-            <p>Klik op de knoppen om live tussen de camerafeeds te schakelen.</p>
-            
-            <div class="camera-monitor">
-                <!-- Radiobuttons bovenaan geplaatst zonder vreemde CSS-hinder -->
-                <input type="radio" name="cam-selector" id="select-cam1" checked>
-                <input type="radio" name="cam-selector" id="select-cam2">
+    <script>
+        let totaalPrijs = 0;
+
