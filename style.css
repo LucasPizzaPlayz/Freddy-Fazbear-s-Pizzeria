@@ -144,16 +144,7 @@ main section {
 .menu-item h3 { margin: 0; color: #fff; }
 .price { position: absolute; right: 20px; top: 20px; font-size: 28px; color: #f3af17; }
 
-.food-desc {
-    font-size: 16px;
-    color: #aaaaaa;
-    margin: 5px 0 0 0;
-    max-width: 80%;
-    line-height: 1.2;
-}
-
 #order-box { background-color: #fff; color: #000; padding: 20px; max-width: 400px; margin: 20px auto; border: 2px dashed #000; }
-#order-btn { background-color: #000; color: #fff; border: none; font-family: 'VT323', monospace; font-size: 22px; padding: 10px; width: 100%; cursor: pointer; }
 
 #booking-form { background-color: #1a1a24; border: 3px solid #f3af17; padding: 30px; max-width: 500px; margin: 0 auto; text-align: left; }
 .form-group { margin-bottom: 20px; }
@@ -161,10 +152,9 @@ main section {
 .form-group input { width: 100%; padding: 10px; font-family: 'VT323', monospace; font-size: 20px; box-sizing: border-box; }
 .submit-btn { background-color: #ff0044; color: white; border: none; padding: 12px; font-family: 'VT323', monospace; font-size: 22px; width: 100%; cursor: pointer; }
 
-.animatronic-container, .merch-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
-.character-card, .merch-item { background-color: #1a1a24; border: 3px solid #f3af17; padding: 15px; width: 180px; box-shadow: 0px 5px 15px rgba(0,0,0,0.4); }
-.character-img, .merch-img { width: 100%; height: 200px; object-fit: contain; background-color: #1c1c24; border-radius: 5px; }
-.character-img-placeholder { font-size: 80px; padding: 40px 0; background-color: #1c1c24; color: #fff; }
+.animatronic-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
+.character-card { background-color: #1a1a24; border: 3px solid #f3af17; padding: 15px; width: 280px; box-shadow: 0px 5px 15px rgba(0,0,0,0.4); }
+.character-img { width: 100%; height: 200px; object-fit: cover; border-radius: 5px; }
 
 .char-desc {
     font-size: 16px;
@@ -172,4 +162,92 @@ main section {
     margin-top: 10px;
     line-height: 1.3;
     text-align: left;
+}
+
+/* LIVE MONITOR SYSTEM */
+.camera-monitor {
+    display: block !important;
+    max-width: 650px;
+    margin: 20px auto;
+    background-color: #000;
+    border: 6px solid #444;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0,255,204,0.3);
+}
+
+main input[type="radio"] { 
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+#camera-screen { width: 100%; height: 380px; position: relative; overflow: hidden; background-color: #05050a; }
+.feed { display: none; width: 100%; height: 100%; }
+.cam-gif { width: 100%; height: 100%; object-fit: cover; }
+.camera-tag { position: absolute; top: 15px; left: 15px; background-color: rgba(0,0,0,0.85); color: #00ffcc; padding: 5px 15px; font-size: 22px; border: 1px solid #00ffcc; z-index: 10; }
+.scanlines { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%); background-size: 100% 4px; z-index: 8; pointer-events: none; }
+.static-noise { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-radial-gradient(circle at 50% 50%, #fff, #000 2px); opacity: 0.08; z-index: 7; pointer-events: none; }
+
+.camera-controls { background-color: #222; padding: 15px; display: flex; justify-content: center; gap: 10px; }
+.cam-label-btn { background-color: #111; color: #fff; border: 2px solid #555; font-family: 'VT323', monospace; font-size: 20px; padding: 5px 15px; cursor: pointer; display: inline-block; }
+.cam-label-btn:hover { background-color: #ff0044; border-color: #fff; }
+
+#select-cam1:checked ~ #camera-screen #feed-1 { display: block !important; }
+#select-cam2:checked ~ #camera-screen #feed-2 { display: block !important; }
+#select-cam3:checked ~ #camera-screen #feed-3 { display: block !important; }
+
+#select-cam1:checked ~ .camera-controls label[for="select-cam1"],
+#select-cam2:checked ~ .camera-controls label[for="select-cam2"],
+#select-cam3:checked ~ .camera-controls label[for="select-cam3"] { background-color: #00ffcc; color: #000; border-color: #fff; }
+
+.secret-danger-btn { background-color: #ff0044; color: white; font-family: 'VT323', monospace; font-size: 24px; border: none; padding: 15px 30px; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 40px; box-shadow: 4px 4px 0px #000; }
+.secret-danger-btn:hover { background-color: #b30030; }
+
+/* JUMPSCARE OVERLAY MET RETRO SHAKE EFFECT */
+#jumpscare-overlay { 
+    display: none; 
+    position: fixed; 
+    top: 0; left: 0; width: 100%; height: 100%; 
+    background-color: #000; 
+    z-index: 999; 
+    text-decoration: none;
+}
+
+#jumpscare-overlay:target { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.jumpscare-wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#jumpscare-gif-file {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: shake 0.08s infinite;
+}
+
+#jumpscare-content { 
+    position: absolute;
+    font-size: 140px; 
+    color: #f3af17; 
+    font-weight: bold; 
+    text-shadow: 0 0 40px #ff0044; 
+    font-family: 'VT323', monospace;
+    animation: shake 0.05s infinite;
+}
+
+@keyframes shake { 
+    0% { transform: translate(4px, 3px) scale(1.02); } 
+    50% { transform: translate(-3px, -4px) scale(1.05); } 
+    100% { transform: translate(3px, -2px) scale(1.02); } 
 }
