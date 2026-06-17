@@ -9,8 +9,8 @@
 </head>
 <body>
 
-    <!-- GEUPGRADE NAAR VERSIE V1.25 (PURE CSS TECH) -->
-    <div class="version-tag">BETA V1.25</div>
+    <!-- GEUPGRADE NAAR VERSIE V1.30 (UNIVERSELE HTTPS IMAGES) -->
+    <div class="version-tag">BETA V1.30</div>
 
     <div class="checkerboard"></div>
 
@@ -58,7 +58,7 @@
                 </div>
             </div>
 
-            <!-- GEVAARLIJKE KNOP: Werkt nu via pure HTML/CSS links -->
+            <!-- GEVAARLIJKE KNOP: Werkt via een Chromebook-veilige link -->
             <a href="#jumpscare-overlay" class="secret-danger-btn">KLIK NIET OP DEZE KNOP</a>
         </section>
 
@@ -66,51 +66,58 @@
         <section id="menu">
             <h2>FREDDY'S PIZZA MENU</h2>
             <div class="menu-container">
-                <div class="menu-item">
+                <div class="menu-item" onclick="voegToeAanBestelling('Pizza (alle soorten)', 6.00)">
                     <h3>Pizza (alle soorten)</h3>
                     <p class="food-desc">Onze klassieke, vettige pizzeria pizza. Versgebakken (behalve tussen 00:00 en 06:00 uur).</p>
                     <span class="price">€6,00</span>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item" onclick="voegToeAanBestelling('Poffertjes', 11.00)">
                     <h3>Poffertjes</h3>
                     <p class="food-desc">Een flinke berg poffertjes met een mysterieuze klont smeltende boter. Favoriet van Bonnie!</p>
                     <span class="price">€11,00</span>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item" onclick="voegToeAanBestelling('Pannenkoeken', 6.00)">
                     <h3>Pannenkoeken</h3>
                     <p class="food-desc">Groot, goudbruin en rond alsof ze rechtstreeks uit Chica's keuken komen vliegen.</p>
                     <span class="price">€6,00</span>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item" onclick="voegToeAanBestelling('Foxy Ice Cream', 3.00)">
                     <h3>Foxy Ice Cream</h3>
                     <p class="food-desc">Ijskoud piratenavontuur in een bakje. Pas op voor een brainfreeze, net zo scherp als Foxy's haak!</p>
                     <span class="price">€3,00</span>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item" onclick="voegToeAanBestelling('Freddy Faz Cola', 4.00)">
                     <h3>Freddy Faz Cola</h3>
                     <p class="food-desc">Vol met cafeïne en suiker om je gegarandeerd de hele nachtwacht wakker te houden.</p>
                     <span class="price">€4,00</span>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item" onclick="voegToeAanBestelling('Chica Cupcake', 6.00)">
                     <h3>Chica Cupcake</h3>
                     <p class="food-desc">Geïnspireerd op Chica's roze Cupcake. De oogjes lijken je overal in het restaurant te volgen...</p>
                     <span class="price">€6,00</span>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item" onclick="voegToeAanBestelling('Foxy\'s Pirate Popcorn', 2.00)">
                     <h3>Foxy's Pirate Popcorn</h3>
                     <p class="food-desc">Gepofte maïs met een gevaarlijk rode, lichtpittige kruidenmix uit Pirate Cove.</p>
                     <span class="price">€2,00</span>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item" onclick="voegToeAanBestelling('Golden Freddy Wafels', 5.00)">
                     <h3>Golden Freddy Wafels</h3>
                     <p class="food-desc">Goudgele, warme wafels met extra veel zoete siroop. Ze verschijnen en verdwijnen snel van je bord!</p>
                     <span class="price">€5,00</span>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item" onclick="voegToeAanBestelling('Bonnie\'s Rockstar Brownie', 4.00)">
                     <h3>Bonnie's Rockstar Brownie</h3>
                     <p class="food-desc">Een diepdonkere, zware chocoladebrownie versierd met felpaarse spikkels en gitaar-glitters.</p>
                     <span class="price">€4,00</span>
                 </div>
+            </div>
+
+            <div id="order-box">
+                <h3>JOUW BESTELLING</h3>
+                <ul id="order-list"></ul>
+                <p>Totaal: <span id="order-total">€0,00</span></p>
+                <button id="order-btn">Plaats Bestelling</button>
             </div>
         </section>
 
@@ -118,24 +125,24 @@
         <section id="reserveer">
             <h2>RESERVEREN</h2>
             <p class="location-text">📍 Locatie: Freddystraat 1987, Hurricane Utah</p>
-            <form id="booking-form" action="#reserveer" method="GET" onsubmit="alert('Reservering ontvangen! Neem een zaklamp mee...');">
+            <form id="booking-form">
                 <div class="form-group">
                     <label>Je Naam:</label>
-                    <input type="text" required placeholder="Bijv. Mike Schmidt">
+                    <input type="text" id="booking-name" required placeholder="Bijv. Mike Schmidt">
                 </div>
                 <div class="form-group">
                     <label>Aantal Personen:</label>
-                    <input type="number" min="1" max="10" required value="2">
+                    <input type="number" id="booking-guests" min="1" max="10" required value="2">
                 </div>
                 <div class="form-group">
                     <label>Welke Datum:</label>
-                    <input type="date" required>
+                    <input type="date" id="booking-date" required>
                 </div>
                 <button type="submit" class="submit-btn">Reserveer Tafel</button>
             </form>
         </section>
 
-        <!-- SECTIE 4: ONZE DIEREN -->
+        <!-- SECTIE 4: ONZE DIEREN (MET STABELE AFBEELDINGEN) -->
         <section id="dieren">
             <h2>ONTMOET ONZE DIEREN</h2>
             <div class="animatronic-container">
@@ -177,20 +184,3 @@
                     <span class="merch-price">€14,99</span>
                 </div>
             </div>
-        </section>
-
-        <!-- SECTIE 6: BEVEILIGINGSCAMERAS (100% PURE HTML/CSS - ZONDER JAVASCRIPT!) -->
-        <section id="cameras">
-            <h2>BEVEILIGINGSSYSTEEM</h2>
-            <p>Klik op de knoppen om live tussen de camerafeeds te schakelen.</p>
-            
-            <div class="camera-monitor">
-                <!-- Verborgen radio-knoppen die de status onthouden via CSS -->
-                <input type="radio" name="cam-selector" id="select-cam1" checked>
-                <input type="radio" name="cam-selector" id="select-cam2">
-                <input type="radio" name="cam-selector" id="select-cam3">
-
-                <div class="scanlines"></div>
-
-                <!-- Het videoscherm met de verschillende feeds -->
-                <div id="camera-screen">
