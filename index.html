@@ -12,8 +12,8 @@
 </head>
 <body>
 
-    <!-- VERSIE V1.45 -->
-    <div class="version-tag">BETA V1.45</div>
+    <!-- VERSIE V1.46 -->
+    <div class="version-tag">BETA V1.46</div>
 
     <div class="checkerboard"></div>
 
@@ -142,9 +142,7 @@
             <!-- INTERACTIEVE BESTELLIJST -->
             <div id="order-box">
                 <h3>JOUW BESTELLING</h3>
-                <ul id="order-list" style="list-style: none; padding: 0; margin: 15px 0;">
-                    <!-- Bestelde items verschijnen hier via JS -->
-                </ul>
+                <ul id="order-list" style="list-style: none; padding: 0; margin: 15px 0;"></ul>
                 <p style="border-top: 2px dashed #ff0044; padding-top: 10px; margin-top: 10px; font-weight: bold; font-size: 26px;">
                     Totaal: <span id="order-total">€0,00</span>
                 </p>
@@ -193,95 +191,4 @@
                 <div class="form-group">
                     <label for="booking-name">Je Naam:</label>
                     <input type="text" id="booking-name" required placeholder="Bijv. Mike Schmidt">
-
-<script>
-let winkelmandje = [];
-let totaalPrijs = 0;
-
-function voegToeAanBestelling(itemNaam, prijs) {
-    winkelmandje.push({ naam: itemNaam, price: prijs });
-    updateWinkelmandjeVisueel();
-}
-
-function verwijderUitMandje(index) {
-    winkelmandje.splice(index, 1);
-    updateWinkelmandjeVisueel();
-}
-
-function updateWinkelmandjeVisueel() {
-    const orderList = document.getElementById('order-list');
-    const orderTotal = document.getElementById('order-total');
-    if (!orderList || !orderTotal) return;
-    
-    orderList.innerHTML = '';
-    totaalPrijs = 0;
-    
-    if (winkelmandje.length === 0) {
-        orderList.innerHTML = '<li style="color: #666; text-align: center;">Je mandje is nog leeg...</li>';
-        orderTotal.textContent = "€0,00";
-        return;
-    }
-    
-    winkelmandje.forEach((item, index) => {
-        totaalPrijs += item.price;
-        const li = document.createElement('li');
-        li.style.cssText = "display: flex; justify-content: space-between; margin-bottom: 8px; cursor: pointer; background: #222; padding: 5px 10px; border-left: 3px solid #00ffcc; font-size: 20px;";
-        li.title = "Klik om te verwijderen";
-        li.innerHTML = '<span>' + item.naam + '</span> <span style="color: #f3af17;">€' + item.price.toFixed(2).replace('.', ',') + ' ❌</span>';
-        li.onclick = () => verwijderUitMandje(index);
-        orderList.appendChild(li);
-    });
-    
-    orderTotal.textContent = "€" + totaalPrijs.toFixed(2).replace('.', ',');
-}
-
-function toonBestelFormulier() {
-    if (winkelmandje.length === 0) {
-        alert('Voeg eerst gerechten toe aan je lijst voordat je bestelt!');
-        return;
-    }
-    let bestellingTekst = winkelmandje.map(i => i.naam + ' (€' + i.price.toFixed(2) + ')').join(', ');
-    document.getElementById('hidden-order-content').value = bestellingTekst;
-    document.getElementById('hidden-order-total').value = "€" + totaalPrijs.toFixed(2);
-    document.getElementById('order-popup').style.display = 'flex';
-}
-
-function sluitBestelFormulier() {
-    document.getElementById('order-popup').style.display = 'none';
-}
-
-document.getElementById('real-order-form').addEventListener('submit', function() {
-    alert('Je bestelling is onderweg naar de keuken! Houd de deuren gesloten...');
-});
-
-document.getElementById('booking-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Reservering succesvol ontvangen... als je durft te komen!');
-});
-
-function wisselCamera() {
-    const staticNoise = document.getElementById('camera-static');
-    if (staticNoise) {
-        staticNoise.classList.add('camera-glitch');
-        setTimeout(() => {
-            staticNoise.classList.remove('camera-glitch');
-        }, 250);
-    }
-}
-
-let power = 100;
-const powerPercent = document.getElementById('power-percent');
-const countdown = setInterval(() => {
-    if (power > 0) {
-        power--;
-        if (powerPercent) powerPercent.textContent = power;
-    } else {
-        clearInterval(countdown);
-        alert('De stroom is uitgevallen... Succes in het donker!');
-        document.body.style.backgroundColor = "black";
-        document.body.style.color = "red";
-    }
-}, 5000);
-
-updateWinkelmandjeVisueel();
-</script>
+                </div>
