@@ -7,13 +7,13 @@
     <!-- Retro arcade lettertype voor de FNaF sfeer -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- VERSIE V1.38 -->
-    <div class="version-tag">BETA V1.38</div>
+    <!-- VERSIE V1.39 -->
+    <div class="version-tag">BETA V1.39</div>
 
     <div class="checkerboard"></div>
 
@@ -71,20 +71,108 @@
         <!-- SECTIE 2: ONS MENU -->
         <section id="menu">
             <h2>FREDDY'S PIZZA MENU</h2>
+            <p style="color: #00ffcc; margin-bottom: 25px;">Klik op een gerecht om het aan je bestelling toe te voegen!</p>
+            
             <div class="menu-container">
-                <div class="menu-item" onclick="voegToeAanBestelling('Pizza (alle soorten)', 6.00)">
-                    <h3>Pizza (alle soorten)</h3>
+                <!-- Gerecht 1 -->
+                <div class="menu-item" onclick="voegToe('Pizza (alle soorten)', 6.00)">
+                    <h3>🍕 Pizza (alle soorten)</h3>
+                    <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Kies je favo. toppings bij chica´s keuken.</p>
                     <span class="price">€6,00</span>
                 </div>
-                <div class="menu-item" onclick="voegToeAanBestelling('Poffertjes', 11.00)">
-                    <h3>Poffertjes</h3>
+                
+                <!-- Gerecht 2 -->
+                <div class="menu-item" onclick="voegToe('Freddy Faz Cola', 4.00)">
+                    <h3>🥤 Freddy Faz Cola</h3>
+                    <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">De cola die je wakker houdt tijdens de nachtdienst!</p>
+                    <span class="price">€4,00</span>
+                </div>
+
+                <!-- Gerecht 3 -->
+                <div class="menu-item" onclick="voegToe('Patat', 3.50)">
+                    <h3>🍟 Patat</h3>
+                    <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Lekkere patat met zout of geen zout.</p>
+                    <span class="price">€3,50</span>
+                </div>
+
+                <!-- Gerecht 4 -->
+                <div class="menu-item" onclick="voegToe('Poffertjes', 11.00)">
+                    <h3>🥞 Poffertjes</h3>
+                    <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Goudbruine mini-pannenkoekjes met een flinke klont smeltende boter.</p>
                     <span class="price">€11,00</span>
                 </div>
+
+                <!-- Gerecht 5 -->
+                <div class="menu-item" onclick="voegToe('Pannenkoeken', 6.00)">
+                    <h3>🥞 Pannenkoeken</h3>
+                    <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Groot, rond en warm. Perfect te combineren met stroop of poedersuiker!</p>
+                    <span class="price">€6,00</span>
+                </div>
+
+                <!-- Gerecht 6 -->
+                <div class="menu-item" onclick="voegToe('Foxy Ice Cream', 3.00)">
+                    <h3>🍦 Foxy Ice Cream</h3>
+                    <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Een ijskoud avontuur rechtstreeks uit de beruchte Pirate Cove!</p>
+                    <span class="price">€3,00</span>
+                </div>
+
+                <!-- Gerecht 7 -->
+                <div class="menu-item" onclick="voegToe('Chica Cupcake', 6.00)">
+                    <h3>🧁 Chica Cupcake</h3>
+                    <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Pas op dat deze iconische roze cupcake niet naar je staart!</p>
+                    <span class="price">€6,00</span>
+                </div>
+
+                <!-- Gerecht 8 -->
+                <div class="menu-item" onclick="voegToe('Rockstar Bonnie Brownies', 7.00)">
+                    <h3>🎸 Rockstar Bonnie Brownies</h3>
+                    <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Stevige chocoladebrownies met een rockende smaakexplosie.</p>
+                    <span class="price">€7,00</span>
+                </div>
+
+                <!-- Gerecht 9 -->
+                <div class="menu-item" onclick="voegToe('Golden Freddy Wafels', 5.00)">
+                    <h3>🐻 Golden Freddy Wafels</h3>
+                    <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Zeldzaam lekkere, goudgele wafels. Bestellen op eigen risico...</p>
+                    <span class="price">€5,00</span>
+                </div>
             </div>
+
+            <!-- INTERACTIEVE BESTELLIJST -->
             <div id="order-box">
                 <h3>JOUW BESTELLING</h3>
-                <ul id="order-list"></ul>
-                <p>Totaal: <span id="order-total">€0,00</span></p>
+                <ul id="order-list" style="list-style: none; padding: 0; margin: 15px 0;">
+                    <!-- Gerechten verschijnen hier automatisch via JS -->
+                </ul>
+                <p style="border-top: 2px dashed #ff0044; padding-top: 10px; margin-top: 10px; font-weight: bold; font-size: 26px;">
+                    Totaal: <span id="order-total">€0,00</span>
+                </p>
+                <button class="submit-btn" style="margin-top: 10px; padding: 10px;" onclick="toonBestelFormulier()">BESTELLING AFRONDEN 🍕</button>
+            </div>
+
+            <!-- POP-UP VOOR ECHTE BESTELLING (VERBORDEN TOT JE KLIKT) -->
+            <div id="order-popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 999; justify-content: center; align-items: center;">
+                <div style="background: #1a1a24; border: 3px solid #f3af17; padding: 30px; max-width: 450px; width: 90%; text-align: left; box-shadow: 0 0 20px #ff0044;">
+                    <h3 style="color: #ff0044; margin-top: 0;">BESTELLING VERSTUREN</h3>
+                    
+                    <form action="https://formspree.io" method="POST" id="real-order-form">
+                        <div class="form-group">
+                            <label>Je Naam:</label>
+                            <input type="text" name="Naam" required placeholder="Bijv. Jeremy Fitzgerald">
+                        </div>
+                        <div class="form-group">
+                            <label>Tafelnummer of Adres:</label>
+                            <input type="text" name="Locatie" required placeholder="Bijv. Tafel 4 of Thuisbezorgd adres">
+                        </div>
+                        
+                        <!-- Onzichtbare invoervelden voor het mailformulier -->
+                        <input type="hidden" name="Inhoud_Bestelling" id="hidden-order-content">
+                        <input type="hidden" name="Totaalprijs" id="hidden-order-total">
+
+                        <button type="submit" class="submit-btn" style="margin-bottom: 10px;">VERSTUUR NAAR DE KEUKEN 🔥</button>
+                        <button type="button" class="submit-btn" style="background: #444;" onclick="sluitBestelFormulier()">ANNULEREN</button>
+                    </form>
+                </div>
             </div>
         </section>
 
@@ -113,107 +201,3 @@
 
         <!-- SECTIE 5: INTERACTIEF BEVEILIGINGSSYSTEEM -->
         <section id="cameras">
-            <h2>BEVEILIGINGSSYSTEEM</h2>
-            <p>Schakel live tussen de camerafeeds van je eigen geüploade animaties.</p>
-            
-            <!-- Batterij display -->
-            <div id="power-indicator">⚡ POWER: <span id="power-percent">100</span>%</div>
-            
-            <div class="camera-monitor">
-                <!-- Onclick functies triggeren de JavaScript storing -->
-                <input type="radio" name="cam-selector" id="select-cam1" checked onclick="wisselCamera()">
-                <input type="radio" name="cam-selector" id="select-cam2" onclick="wisselCamera()">
-                <input type="radio" name="cam-selector" id="select-cam3" onclick="wisselCamera()">
-
-                <div id="camera-screen">
-                    <div class="scanlines"></div>
-                    <div class="static-noise" id="camera-static"></div>
-                    
-                    <div class="feed" id="feed-1">
-                        <div class="camera-tag">CAM 1A - STAGE MAIN FEED</div>
-                        <img src="./fnaf.gif" class="cam-gif" alt="Stage Feed">
-                    </div>
-                    
-                    <div class="feed" id="feed-2">
-                        <div class="camera-tag">CAM 1B - PIRATE COVE RUN</div>
-                        <img src="./foxy running.gif" class="cam-gif" alt="Foxy Run Feed">
-                    </div>
-                    
-                    <div class="feed" id="feed-3">
-                        <div class="camera-tag">CAM 2A - PARTS & SERVICE</div>
-                        <img src="./zielige chica.gif" class="cam-gif" alt="Zielige Chica Feed">
-                    </div>
-                </div>
-
-                <div class="camera-controls">
-                    <label for="select-cam1" class="cam-label-btn">CAM 1A</label>
-                    <label for="select-cam2" class="cam-label-btn">CAM 1B</label>
-                    <label for="select-cam3" class="cam-label-btn">CAM 2A</label>
-                </div>
-            </div>
-        </section>
-
-        <!-- GOLDEN FREDDY JUMPSCARE OVERLAY -->
-        <a href="#home" id="jumpscare-overlay">
-            <div class="jumpscare-wrapper">
-                <img src="./robots staring.gif" alt="Golden Freddy Jumpscare" id="jumpscare-gif-file">
-                <div id="jumpscare-content">IT'S ME</div>
-            </div>
-        </a>
-    </main>
-
-    <script>
-        // Bestelsysteem functionaliteit
-        let totaalPrijs = 0;
-        function voegToeAanBestelling(itemNaam, prijs) {
-            totaalPrijs += prijs;
-            const orderList = document.getElementById('order-list');
-            const orderTotal = document.getElementById('order-total');
-            if (orderList && orderTotal) {
-                const li = document.createElement('li');
-                li.textContent = itemNaam + " - €" + prijs.toFixed(2).replace('.', ',');
-                orderList.appendChild(li);
-                orderTotal.textContent = "€" + totaalPrijs.toFixed(2).replace('.', ',');
-            }
-        }
-
-        // Voorkom pagina-refresh bij reserveren
-        document.getElementById('booking-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Reservering succesvol ontvangen... als je durft te komen!');
-        });
-
-        // Functie voor de camerastoring bij het wisselen
-        function wisselCamera() {
-            const staticNoise = document.getElementById('camera-static');
-            if (staticNoise) {
-                staticNoise.classList.add('camera-glitch');
-                setTimeout(() => {
-                    staticNoise.classList.remove('camera-glitch');
-                }, 250); // Duur van de glitch in milliseconden
-            }
-        }
-
-        // Mechaniek voor de leeglopende batterij
-        let stroom = 100;
-        const powerInterval = setInterval(() => {
-            stroom -= 1;
-            const powerPercent = document.getElementById('power-percent');
-            
-            if (powerPercent) {
-                powerPercent.textContent = stroom;
-            }
-
-            // Stroom is op: scherm valt uit
-            if (stroom <= 0) {
-                clearInterval(powerInterval);
-                const cameraScreen = document.getElementById('camera-screen');
-                if (cameraScreen) {
-                    cameraScreen.style.backgroundColor = '#000';
-                    cameraScreen.innerHTML = '<div style="color:red; font-size:40px; padding-top:150px; font-family:\'VT323\', monospace;">POWER OUTAGE</div>';
-                }
-            }
-        }, 5000); // Verlaagt de stroom elke 5 seconden met 1%
-    </script>
-</body>
-</html>
