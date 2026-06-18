@@ -7,13 +7,13 @@
     <!-- Retro arcade lettertype voor de FNaF sfeer -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- VERSIE V1.40 -->
-    <div class="version-tag">BETA V1.40</div>
+    <!-- VERSIE V1.42 -->
+    <div class="version-tag">BETA V1.42</div>
 
     <div class="checkerboard"></div>
 
@@ -25,6 +25,7 @@
     <nav>
         <a href="#home" class="nav-button">Home</a>
         <a href="#menu" class="nav-button">Ons Menu</a>
+        <a href="#tijden" class="nav-button">Tijden</a>
         <a href="#reserveer" class="nav-button">Reserveren</a>
         <a href="#dieren" class="nav-button">Onze Dieren</a>
         <a href="#cameras" class="nav-button">Beveiliging (CAMS)</a>
@@ -150,7 +151,7 @@
                 <button class="submit-btn" style="margin-top: 10px; padding: 10px;" onclick="toonBestelFormulier()">BESTELLING AFRONDEN 🍕</button>
             </div>
 
-            <!-- POP-UP VOOR ECHTE BESTELLING (VERSTREKT VIA MAILLINK) -->
+            <!-- POP-UP VOOR ECHTE BESTELLING -->
             <div id="order-popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 999; justify-content: center; align-items: center;">
                 <div style="background: #1a1a24; border: 3px solid #f3af17; padding: 30px; max-width: 450px; width: 90%; text-align: left; box-shadow: 0 0 20px #ff0044;">
                     <h3 style="color: #ff0044; margin-top: 0;">BESTELLING VERSTUREN</h3>
@@ -165,7 +166,6 @@
                             <input type="text" name="Locatie" required placeholder="Bijv. Tafel 4">
                         </div>
                         
-                        <!-- Onzichtbare invoervelden voor het mailformulier -->
                         <input type="hidden" name="Inhoud_Bestelling" id="hidden-order-content">
                         <input type="hidden" name="Totaalprijs" id="hidden-order-total">
 
@@ -176,6 +176,16 @@
             </div>
         </section>
 
+        <!-- SECTIE: OPENINGSTIJDEN -->
+        <section id="tijden">
+            <h2>OPENINGSTIJDEN</h2>
+            <div class="welcome-box" style="max-width: 500px; margin: 0 auto; border-color: #00ffcc;">
+                <p style="font-size: 28px; color: #fff; margin: 10px 0;">📆 Maandag t/m Zaterdag</p>
+                <p style="font-size: 36px; color: #f3af17; font-weight: bold; margin: 10px 0;">11:00 - 21:00 uur</p>
+                <p style="font-size: 24px; color: #ff0044; margin: 20px 0 10px 0; font-weight: bold;">🚨 GESLOTEN OP ZONDAG & FEESTDAGEN 🚨</p>
+            </div>
+        </section>
+
         <!-- SECTIE 3: RESERVEREN -->
         <section id="reserveer">
             <h2>RESERVEREN</h2>
@@ -183,19 +193,3 @@
                 <div class="form-group">
                     <label for="booking-name">Je Naam:</label>
                     <input type="text" id="booking-name" required placeholder="Bijv. Mike Schmidt">
-                </div>
-                <button type="submit" class="submit-btn">Reserveer Tafel</button>
-            </form>
-        </section>
-
-        <!-- SECTIE 4: ONZE DIEREN -->
-        <section id="dieren">
-            <h2>ONTMOET ONZE DIEREN</h2>
-            <div class="animatronic-container">
-                <div class="character-card">
-                    <img src="./animatronics.jpg" alt="Animatronics Show Stage" class="character-img">
-                    <h3>The Animatronics</h3>
-                </div>
-            </div>
-        </section>
-
