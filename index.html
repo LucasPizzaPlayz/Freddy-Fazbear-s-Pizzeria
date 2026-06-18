@@ -7,13 +7,13 @@
     <!-- Retro arcade lettertype voor de FNaF sfeer -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- VERSIE V1.46 -->
-    <div class="version-tag">BETA V1.46</div>
+    <!-- VERSIE V1.39 -->
+    <div class="version-tag">BETA V1.39</div>
 
     <div class="checkerboard"></div>
 
@@ -25,7 +25,6 @@
     <nav>
         <a href="#home" class="nav-button">Home</a>
         <a href="#menu" class="nav-button">Ons Menu</a>
-        <a href="#tijden" class="nav-button">Tijden</a>
         <a href="#reserveer" class="nav-button">Reserveren</a>
         <a href="#dieren" class="nav-button">Onze Dieren</a>
         <a href="#cameras" class="nav-button">Beveiliging (CAMS)</a>
@@ -76,63 +75,63 @@
             
             <div class="menu-container">
                 <!-- Gerecht 1 -->
-                <div class="menu-item" onclick="voegToeAanBestelling('Pizza (alle soorten)', 6.00)">
+                <div class="menu-item" onclick="voegToe('Pizza (alle soorten)', 6.00)">
                     <h3>🍕 Pizza (alle soorten)</h3>
                     <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Kies je favo. toppings bij chica´s keuken.</p>
                     <span class="price">€6,00</span>
                 </div>
                 
                 <!-- Gerecht 2 -->
-                <div class="menu-item" onclick="voegToeAanBestelling('Freddy Faz Cola', 4.00)">
+                <div class="menu-item" onclick="voegToe('Freddy Faz Cola', 4.00)">
                     <h3>🥤 Freddy Faz Cola</h3>
                     <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">De cola die je wakker houdt tijdens de nachtdienst!</p>
                     <span class="price">€4,00</span>
                 </div>
 
                 <!-- Gerecht 3 -->
-                <div class="menu-item" onclick="voegToeAanBestelling('Patat', 3.50)">
+                <div class="menu-item" onclick="voegToe('Patat', 3.50)">
                     <h3>🍟 Patat</h3>
                     <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Lekkere patat met zout of geen zout.</p>
                     <span class="price">€3,50</span>
                 </div>
 
                 <!-- Gerecht 4 -->
-                <div class="menu-item" onclick="voegToeAanBestelling('Poffertjes', 11.00)">
+                <div class="menu-item" onclick="voegToe('Poffertjes', 11.00)">
                     <h3>🥞 Poffertjes</h3>
                     <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Goudbruine mini-pannenkoekjes met een flinke klont smeltende boter.</p>
                     <span class="price">€11,00</span>
                 </div>
 
                 <!-- Gerecht 5 -->
-                <div class="menu-item" onclick="voegToeAanBestelling('Pannenkoeken', 6.00)">
+                <div class="menu-item" onclick="voegToe('Pannenkoeken', 6.00)">
                     <h3>🥞 Pannenkoeken</h3>
                     <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Groot, rond en warm. Perfect te combineren met stroop of poedersuiker!</p>
                     <span class="price">€6,00</span>
                 </div>
 
                 <!-- Gerecht 6 -->
-                <div class="menu-item" onclick="voegToeAanBestelling('Foxy Ice Cream', 3.00)">
+                <div class="menu-item" onclick="voegToe('Foxy Ice Cream', 3.00)">
                     <h3>🍦 Foxy Ice Cream</h3>
                     <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Een ijskoud avontuur rechtstreeks uit de beruchte Pirate Cove!</p>
                     <span class="price">€3,00</span>
                 </div>
 
                 <!-- Gerecht 7 -->
-                <div class="menu-item" onclick="voegToeAanBestelling('Chica Cupcake', 6.00)">
+                <div class="menu-item" onclick="voegToe('Chica Cupcake', 6.00)">
                     <h3>🧁 Chica Cupcake</h3>
                     <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Pas op dat deze iconische roze cupcake niet naar je staart!</p>
                     <span class="price">€6,00</span>
                 </div>
 
                 <!-- Gerecht 8 -->
-                <div class="menu-item" onclick="voegToeAanBestelling('Rockstar Bonnie Brownies', 7.00)">
+                <div class="menu-item" onclick="voegToe('Rockstar Bonnie Brownies', 7.00)">
                     <h3>🎸 Rockstar Bonnie Brownies</h3>
                     <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Stevige chocoladebrownies met een rockende smaakexplosie.</p>
                     <span class="price">€7,00</span>
                 </div>
 
                 <!-- Gerecht 9 -->
-                <div class="menu-item" onclick="voegToeAanBestelling('Golden Freddy Wafels', 5.00)">
+                <div class="menu-item" onclick="voegToe('Golden Freddy Wafels', 5.00)">
                     <h3>🐻 Golden Freddy Wafels</h3>
                     <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Zeldzaam lekkere, goudgele wafels. Bestellen op eigen risico...</p>
                     <span class="price">€5,00</span>
@@ -142,14 +141,16 @@
             <!-- INTERACTIEVE BESTELLIJST -->
             <div id="order-box">
                 <h3>JOUW BESTELLING</h3>
-                <ul id="order-list" style="list-style: none; padding: 0; margin: 15px 0;"></ul>
+                <ul id="order-list" style="list-style: none; padding: 0; margin: 15px 0;">
+                    <!-- Gerechten verschijnen hier automatisch via JS -->
+                </ul>
                 <p style="border-top: 2px dashed #ff0044; padding-top: 10px; margin-top: 10px; font-weight: bold; font-size: 26px;">
                     Totaal: <span id="order-total">€0,00</span>
                 </p>
                 <button class="submit-btn" style="margin-top: 10px; padding: 10px;" onclick="toonBestelFormulier()">BESTELLING AFRONDEN 🍕</button>
             </div>
 
-            <!-- POP-UP VOOR ECHTE BESTELLING -->
+            <!-- POP-UP VOOR ECHTE BESTELLING (VERBORDEN TOT JE KLIKT) -->
             <div id="order-popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 999; justify-content: center; align-items: center;">
                 <div style="background: #1a1a24; border: 3px solid #f3af17; padding: 30px; max-width: 450px; width: 90%; text-align: left; box-shadow: 0 0 20px #ff0044;">
                     <h3 style="color: #ff0044; margin-top: 0;">BESTELLING VERSTUREN</h3>
@@ -161,9 +162,10 @@
                         </div>
                         <div class="form-group">
                             <label>Tafelnummer of Adres:</label>
-                            <input type="text" name="Locatie" required placeholder="Bijv. Tafel 4">
+                            <input type="text" name="Locatie" required placeholder="Bijv. Tafel 4 of Thuisbezorgd adres">
                         </div>
                         
+                        <!-- Onzichtbare invoervelden voor het mailformulier -->
                         <input type="hidden" name="Inhoud_Bestelling" id="hidden-order-content">
                         <input type="hidden" name="Totaalprijs" id="hidden-order-total">
 
@@ -171,16 +173,6 @@
                         <button type="button" class="submit-btn" style="background: #444;" onclick="sluitBestelFormulier()">ANNULEREN</button>
                     </form>
                 </div>
-            </div>
-        </section>
-
-        <!-- SECTIE: OPENINGSTIJDEN -->
-        <section id="tijden">
-            <h2>OPENINGSTIJDEN</h2>
-            <div class="welcome-box" style="max-width: 500px; margin: 0 auto; border-color: #00ffcc;">
-                <p style="font-size: 28px; color: #fff; margin: 10px 0;">📆 Maandag t/m Zaterdag</p>
-                <p style="font-size: 36px; color: #f3af17; font-weight: bold; margin: 10px 0;">11:00 - 21:00 uur</p>
-                <p style="font-size: 24px; color: #ff0044; margin: 20px 0 10px 0; font-weight: bold;">🚨 GESLOTEN OP ZONDAG & FEESTDAGEN 🚨</p>
             </div>
         </section>
 
@@ -192,3 +184,20 @@
                     <label for="booking-name">Je Naam:</label>
                     <input type="text" id="booking-name" required placeholder="Bijv. Mike Schmidt">
                 </div>
+                <button type="submit" class="submit-btn">Reserveer Tafel</button>
+            </form>
+        </section>
+
+        <!-- SECTIE 4: ONZE DIEREN -->
+        <section id="dieren">
+            <h2>ONTMOET ONZE DIEREN</h2>
+            <div class="animatronic-container">
+                <div class="character-card">
+                    <img src="./animatronics.jpg" alt="Animatronics Show Stage" class="character-img">
+                    <h3>The Animatronics</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTIE 5: INTERACTIEF BEVEILIGINGSSYSTEEM -->
+        <section id="cameras">
