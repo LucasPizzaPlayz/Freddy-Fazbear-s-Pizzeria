@@ -252,19 +252,3 @@ main input[type="radio"] {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-#jumpscare-content {
-    position: absolute;
-    font-family: 'Press Start 2P', monospace;
-    font-size: 80px;
-    color: #ff0044;
-    text-shadow: 4px 4px #000;
-    animation: flash-shake 0.1s infinite;
-}
-
-@keyframes flash-shake {
-    0% { transform: translate(2px, 1px) rotate(0deg); opacity: 1; }
-    50% { transform: translate(-1px, -2px) rotate(-1deg); opacity: 0.5; }
-    100% { transform: translate(1px, 2px) rotate(1deg); opacity: 1; }
-}
