@@ -1,203 +1,270 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freddy Fazbear's Pizzeria</title>
-    <!-- Retro arcade lettertype voor de FNaF sfeer -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+html {
+    scroll-behavior: smooth;
+}
 
-    <!-- VERSIE V1.39 -->
-    <div class="version-tag">BETA V1.39</div>
+body {
+    background-color: #121216;
+    color: #f3af17;
+    font-family: 'VT323', monospace;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
 
-    <div class="checkerboard"></div>
+.version-tag {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    background-color: rgba(255, 0, 68, 0.85);
+    color: #fff;
+    font-size: 18px;
+    padding: 3px 10px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    z-index: 200;
+}
 
-    <header>
-        <h1>FREDDY FAZBEAR'S PIZZERIA</h1>
-        <p class="tagline">"Where fantasy and fun come to life!"</p>
-    </header>
+.checkerboard {
+    background-image: 
+        linear-gradient(45deg, #000 25%, transparent 25%), 
+        linear-gradient(-45deg, #000 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #000 75%), 
+        linear-gradient(-45deg, transparent 75%, #000 75%);
+    background-size: 40px 40px;
+    background-position: 0 0, 0 20px, 20px -20px, -20px 0;
+    background-color: #222;
+    height: 40px;
+    width: 100%;
+}
 
-    <nav>
-        <a href="#home" class="nav-button">Home</a>
-        <a href="#menu" class="nav-button">Ons Menu</a>
-        <a href="#reserveer" class="nav-button">Reserveren</a>
-        <a href="#dieren" class="nav-button">Onze Dieren</a>
-        <a href="#cameras" class="nav-button">Beveiliging (CAMS)</a>
-    </nav>
+header h1 {
+    color: #ff0044;
+    font-size: 60px;
+    text-shadow: 3px 3px #000, 0 0 10px #ff0044;
+    margin: 30px 0 0 0;
+}
 
-    <main>
-        <!-- SECTIE 1: HOME -->
-        <section id="home">
-            <div class="building-container">
-                <img src="./voorkant.jpg" alt="Pizzeria Voorkant" class="building-img">
-            </div>
+.tagline {
+    color: #00ffcc;
+    font-style: italic;
+    text-shadow: 2px 2px #000;
+}
 
-            <div class="danger-warning">
-                ⚠️ WAARSCHUWING: BETREDEN OP EIGEN RISICO! ⚠️
-            </div>
+nav {
+    margin: 30px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #121216;
+    padding: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
 
-            <div class="phone-box">
-                📞 BEL DE NACHTWACHT: <a href="tel:0612345678">06 12345678</a>
-            </div>
+.nav-button {
+    background-color: #222;
+    color: #fff;
+    border: 3px solid #f3af17;
+    padding: 10px 20px;
+    font-family: 'VT323', monospace;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #000;
+    text-decoration: none;
+    display: inline-block;
+}
 
-            <div class="welcome-box">
-                <h2>Welkom bij de gezelligste familiepizzeria!</h2>
-                <p>Kom langs voor onze heerlijke pizza's en zing gezellig mee met onze speciaal getrainde dieren!</p>
-            </div>
+.nav-button:hover {
+    background-color: #ff0044;
+    color: #fff;
+    border-color: #fff;
+}
 
-            <div class="interior-section">
-                <h3>KIJKJE BINNENIN DE PIZZERIA</h3>
-                <div class="interior-gallery">
-                    <div class="interior-card">
-                        <img src="./fnaf dining room.jpg" alt="Eetzaal" class="interior-img">
-                        <p class="interior-caption">De Grote Eetzaal</p>
-                    </div>
-                    <div class="interior-card">
-                        <img src="./arcade hall.jpg" alt="Arcade Gangen" class="interior-img">
-                        <p class="interior-caption">De Retro Arcade Kasten</p>
-                    </div>
-                </div>
-            </div>
+main section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 20px 40px 20px;
+    border-bottom: 2px dashed #333;
+}
 
-            <!-- JUMPSCARE KNOP -->
-            <a href="#jumpscare-overlay" class="secret-danger-btn">KLIK NIET OP DEZE KNOP</a>
-        </section>
+.building-container {
+    max-width: 650px;
+    margin: 20px auto 10px auto;
+    border: 4px solid #f3af17;
+    box-shadow: 0px 0px 25px rgba(255, 0, 68, 0.6);
+}
 
-        <!-- SECTIE 2: ONS MENU -->
-        <section id="menu">
-            <h2>FREDDY'S PIZZA MENU</h2>
-            <p style="color: #00ffcc; margin-bottom: 25px;">Klik op een gerecht om het aan je bestelling toe te voegen!</p>
-            
-            <div class="menu-container">
-                <!-- Gerecht 1 -->
-                <div class="menu-item" onclick="voegToe('Pizza (alle soorten)', 6.00)">
-                    <h3>🍕 Pizza (alle soorten)</h3>
-                    <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Kies je favo. toppings bij chica´s keuken.</p>
-                    <span class="price">€6,00</span>
-                </div>
-                
-                <!-- Gerecht 2 -->
-                <div class="menu-item" onclick="voegToe('Freddy Faz Cola', 4.00)">
-                    <h3>🥤 Freddy Faz Cola</h3>
-                    <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">De cola die je wakker houdt tijdens de nachtdienst!</p>
-                    <span class="price">€4,00</span>
-                </div>
+.building-img {
+    width: 100%;
+    display: block;
+}
 
-                <!-- Gerecht 3 -->
-                <div class="menu-item" onclick="voegToe('Patat', 3.50)">
-                    <h3>🍟 Patat</h3>
-                    <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Lekkere patat met zout of geen zout.</p>
-                    <span class="price">€3,50</span>
-                </div>
+.danger-warning {
+    color: #ff0044;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+    text-shadow: 2px 2px #000;
+    animation: blinker 1.2s linear infinite;
+}
 
-                <!-- Gerecht 4 -->
-                <div class="menu-item" onclick="voegToe('Poffertjes', 11.00)">
-                    <h3>🥞 Poffertjes</h3>
-                    <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Goudbruine mini-pannenkoekjes met een flinke klont smeltende boter.</p>
-                    <span class="price">€11,00</span>
-                </div>
+@keyframes blinker { 50% { opacity: 0; } }
 
-                <!-- Gerecht 5 -->
-                <div class="menu-item" onclick="voegToe('Pannenkoeken', 6.00)">
-                    <h3>🥞 Pannenkoeken</h3>
-                    <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Groot, rond en warm. Perfect te combineren met stroop of poedersuiker!</p>
-                    <span class="price">€6,00</span>
-                </div>
+.phone-box {
+    background-color: #1a1a24;
+    border: 2px solid #00ffcc;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 25px;
+    box-shadow: 4px 4px 0px #000;
+}
 
-                <!-- Gerecht 6 -->
-                <div class="menu-item" onclick="voegToe('Foxy Ice Cream', 3.00)">
-                    <h3>🍦 Foxy Ice Cream</h3>
-                    <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Een ijskoud avontuur rechtstreeks uit de beruchte Pirate Cove!</p>
-                    <span class="price">€3,00</span>
-                </div>
+.phone-box a { color: #fff; text-decoration: none; }
+.phone-box a:hover { color: #ff0044; }
 
-                <!-- Gerecht 7 -->
-                <div class="menu-item" onclick="voegToe('Chica Cupcake', 6.00)">
-                    <h3>🧁 Chica Cupcake</h3>
-                    <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Pas op dat deze iconische roze cupcake niet naar je staart!</p>
-                    <span class="price">€6,00</span>
-                </div>
+.welcome-box {
+    background-color: #1a1a24;
+    border: 4px dashed #ff0044;
+    padding: 20px;
+    margin-bottom: 40px;
+}
 
-                <!-- Gerecht 8 -->
-                <div class="menu-item" onclick="voegToe('Rockstar Bonnie Brownies', 7.00)">
-                    <h3>🎸 Rockstar Bonnie Brownies</h3>
-                    <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Stevige chocoladebrownies met een rockende smaakexplosie.</p>
-                    <span class="price">€7,00</span>
-                </div>
+.interior-section h3 { color: #00ffcc; font-size: 34px; }
+.interior-gallery { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.interior-card { background-color: #1a1a24; border: 3px solid #ff0044; padding: 10px; width: 380px; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); }
+.interior-img { width: 100%; height: 220px; object-fit: cover; }
+.interior-caption { font-size: 20px; color: #fff; margin-top: 10px; }
 
-                <!-- Gerecht 9 -->
-                <div class="menu-item" onclick="voegToe('Golden Freddy Wafels', 5.00)">
-                    <h3>🐻 Golden Freddy Wafels</h3>
-                    <p style="font-size: 16px; color: #aaa; margin: 5px 0 0 0;">Zeldzaam lekkere, goudgele wafels. Bestellen op eigen risico...</p>
-                    <span class="price">€5,00</span>
-                </div>
-            </div>
+.menu-container { display: flex; flex-direction: column; gap: 15px; }
+.menu-item { background-color: #1a1a24; border: 2px solid #00ffcc; padding: 15px; text-align: left; position: relative; cursor: pointer;}
+.menu-item:hover { border-color: #f3af17; background-color: #252535; }
+.menu-item h3 { margin: 0; color: #fff; }
+.price { position: absolute; right: 20px; top: 20px; font-size: 28px; color: #f3af17; }
 
-            <!-- INTERACTIEVE BESTELLIJST -->
-            <div id="order-box">
-                <h3>JOUW BESTELLING</h3>
-                <ul id="order-list" style="list-style: none; padding: 0; margin: 15px 0;">
-                    <!-- Gerechten verschijnen hier automatisch via JS -->
-                </ul>
-                <p style="border-top: 2px dashed #ff0044; padding-top: 10px; margin-top: 10px; font-weight: bold; font-size: 26px;">
-                    Totaal: <span id="order-total">€0,00</span>
-                </p>
-                <button class="submit-btn" style="margin-top: 10px; padding: 10px;" onclick="toonBestelFormulier()">BESTELLING AFRONDEN 🍕</button>
-            </div>
+#order-box { 
+    background-color: #1a1a24; 
+    color: #00ffcc; 
+    padding: 20px; 
+    max-width: 400px; 
+    margin: 20px auto; 
+    border: 3px dashed #ff0044; 
+    box-shadow: 4px 4px 0px #000;
+}
+#order-box h3 { color: #fff; margin-top: 0; }
+#order-list { text-align: left; color: #fff; }
 
-            <!-- POP-UP VOOR ECHTE BESTELLING (VERBORDEN TOT JE KLIKT) -->
-            <div id="order-popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 999; justify-content: center; align-items: center;">
-                <div style="background: #1a1a24; border: 3px solid #f3af17; padding: 30px; max-width: 450px; width: 90%; text-align: left; box-shadow: 0 0 20px #ff0044;">
-                    <h3 style="color: #ff0044; margin-top: 0;">BESTELLING VERSTUREN</h3>
-                    
-                    <form action="https://formspree.io" method="POST" id="real-order-form">
-                        <div class="form-group">
-                            <label>Je Naam:</label>
-                            <input type="text" name="Naam" required placeholder="Bijv. Jeremy Fitzgerald">
-                        </div>
-                        <div class="form-group">
-                            <label>Tafelnummer of Adres:</label>
-                            <input type="text" name="Locatie" required placeholder="Bijv. Tafel 4 of Thuisbezorgd adres">
-                        </div>
-                        
-                        <!-- Onzichtbare invoervelden voor het mailformulier -->
-                        <input type="hidden" name="Inhoud_Bestelling" id="hidden-order-content">
-                        <input type="hidden" name="Totaalprijs" id="hidden-order-total">
+#booking-form { background-color: #1a1a24; border: 3px solid #f3af17; padding: 30px; max-width: 500px; margin: 0 auto; text-align: left; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 5px; color: #00ffcc; }
+.form-group input { width: 100%; padding: 10px; font-family: 'VT323', monospace; font-size: 20px; box-sizing: border-box; background-color: #111; color: #fff; border: 2px solid #f3af17; }
+.submit-btn { background-color: #ff0044; color: white; border: none; padding: 12px; font-family: 'VT323', monospace; font-size: 22px; width: 100%; cursor: pointer; box-shadow: 3px 3px 0px #000; }
+.submit-btn:hover { background-color: #b30030; }
 
-                        <button type="submit" class="submit-btn" style="margin-bottom: 10px;">VERSTUUR NAAR DE KEUKEN 🔥</button>
-                        <button type="button" class="submit-btn" style="background: #444;" onclick="sluitBestelFormulier()">ANNULEREN</button>
-                    </form>
-                </div>
-            </div>
-        </section>
+.animatronic-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
+.character-card { background-color: #1a1a24; border: 3px solid #f3af17; padding: 15px; width: 280px; box-shadow: 0px 5px 15px rgba(0,0,0,0.4); }
+.character-img { width: 100%; height: 200px; object-fit: cover; border-radius: 5px; }
 
-        <!-- SECTIE 3: RESERVEREN -->
-        <section id="reserveer">
-            <h2>RESERVEREN</h2>
-            <form id="booking-form">
-                <div class="form-group">
-                    <label for="booking-name">Je Naam:</label>
-                    <input type="text" id="booking-name" required placeholder="Bijv. Mike Schmidt">
-                </div>
-                <button type="submit" class="submit-btn">Reserveer Tafel</button>
-            </form>
-        </section>
+/* POWER INDICATOR STYLING */
+#power-indicator {
+    font-size: 28px;
+    color: #00ffcc;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px #000;
+}
 
-        <!-- SECTIE 4: ONZE DIEREN -->
-        <section id="dieren">
-            <h2>ONTMOET ONZE DIEREN</h2>
-            <div class="animatronic-container">
-                <div class="character-card">
-                    <img src="./animatronics.jpg" alt="Animatronics Show Stage" class="character-img">
-                    <h3>The Animatronics</h3>
-                </div>
-            </div>
-        </section>
+/* LIVE MONITOR SYSTEM */
+.camera-monitor {
+    display: block !important;
+    max-width: 650px;
+    margin: 20px auto;
+    background-color: #000;
+    border: 6px solid #444;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0,255,204,0.3);
+}
 
-        <!-- SECTIE 5: INTERACTIEF BEVEILIGINGSSYSTEEM -->
-        <section id="cameras">
+main input[type="radio"] { 
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+#camera-screen { width: 100%; height: 380px; position: relative; overflow: hidden; background-color: #05050a; }
+.feed { display: none; width: 100%; height: 100%; }
+.cam-gif { width: 100%; height: 100%; object-fit: cover; }
+.camera-tag { position: absolute; top: 15px; left: 15px; background-color: rgba(0,0,0,0.85); color: #00ffcc; padding: 5px 15px; font-size: 22px; border: 1px solid #00ffcc; z-index: 10; }
+.scanlines { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%); background-size: 100% 4px; z-index: 8; pointer-events: none; }
+.static-noise { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-radial-gradient(circle at 50% 50%, #fff, #000 2px); opacity: 0.08; z-index: 7; pointer-events: none; }
+
+/* Tijdelijke zware storing klasse aangestuurd door JS */
+.camera-glitch {
+    opacity: 0.85 !important;
+    background: repeating-linear-gradient(0deg, #fff, #000 4px) !important;
+    z-index: 9;
+}
+
+.camera-controls { background-color: #222; padding: 15px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.cam-label-btn { background-color: #111; color: #fff; border: 2px solid #555; font-family: 'VT323', monospace; font-size: 20px; padding: 5px 15px; cursor: pointer; display: inline-block; }
+.cam-label-btn:hover { background-color: #ff0044; border-color: #fff; }
+
+#select-cam1:checked ~ #camera-screen #feed-1 { display: block !important; }
+#select-cam2:checked ~ #camera-screen #feed-2 { display: block !important; }
+#select-cam3:checked ~ #camera-screen #feed-3 { display: block !important; }
+
+#select-cam1:checked ~ .camera-controls label[for="select-cam1"],
+#select-cam2:checked ~ .camera-controls label[for="select-cam2"],
+#select-cam3:checked ~ .camera-controls label[for="select-cam3"] { background-color: #00ffcc; color: #000; border-color: #fff; }
+
+.secret-danger-btn { background-color: #ff0044; color: white; font-family: 'VT323', monospace; font-size: 24px; border: none; padding: 15px 30px; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 40px; box-shadow: 4px 4px 0px #000; }
+.secret-danger-btn:hover { background-color: #b30030; }
+
+/* JUMPSCARE OVERLAY */
+#jumpscare-overlay { 
+    display: none; 
+    position: fixed; 
+    top: 0; left: 0; width: 100%; height: 100%; 
+    background-color: #000; 
+    z-index: 999; 
+    text-decoration: none;
+}
+
+#jumpscare-overlay:target { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.jumpscare-wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#jumpscare-gif-file {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#jumpscare-content {
+    position: absolute;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 80px;
+    color: #ff0044;
+    text-shadow: 4px 4px #000;
+    animation: flash-shake 0.1s infinite;
+}
+
+@keyframes flash-shake {
+    0% { transform: translate(2px, 1px) rotate(0deg); opacity: 1; }
+    50% { transform: translate(-1px, -2px) rotate(-1deg); opacity: 0.5; }
+    100% { transform: translate(1px, 2px) rotate(1deg); opacity: 1; }
+}
