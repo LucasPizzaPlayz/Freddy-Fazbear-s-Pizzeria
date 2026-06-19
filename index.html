@@ -7,7 +7,7 @@
     <!-- Retro arcade lettertype voor de FNaF sfeer -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -24,6 +24,7 @@
 
     <nav>
         <a href="#home" class="nav-button">Home</a>
+        <a href="#updates" class="nav-button">Updates</a>
         <a href="#menu" class="nav-button">Ons Menu</a>
         <a href="#reserveer" class="nav-button">Reserveren</a>
         <a href="#dieren" class="nav-button">Onze Dieren</a>
@@ -68,26 +69,98 @@
             <a href="#jumpscare-overlay" class="secret-danger-btn">KLIK NIET OP DEZE KNOP</a>
         </section>
 
+        <!-- SECTIE: UPDATES & DEVLOG -->
+        <section id="updates">
+            <h2>LAATSTE UPDATES</h2>
+            <div class="update-card">
+                <h3>🚨 SYSTEM UPDATE: BETA V1.38</h3>
+                <p class="devlog-title">💻 Technische Highlights (DevLog):</p>
+                <ul>
+                    <li><strong>Live Camera Systeem:</strong> Schakelbare feeds (CAM 1A, 1B, 2A) gebouwd met HTML radio-buttons en JavaScript glitch-effecten.</li>
+                    <li><strong>Dynamische Rekenaar:</strong> Prijzen in het menu worden nu automatisch via JavaScript opgeteld bij elke klik.</li>
+                    <li><strong>Event Trigger:</strong> Custom CSS overlay-koppeling gemaakt for de Golden Freddy jumpscare.</li>
+                </ul>
+                <p class="bug-notice">*Bekende bug: De Power-indicator blijft momenteel haken op 100%. Fix volgt in V1.39.*</p>
+            </div>
+        </section>
+
         <!-- SECTIE 2: ONS MENU -->
         <section id="menu">
             <h2>FREDDY'S PIZZA MENU</h2>
             <div class="menu-container">
+                
+                <!-- Freddy Pizza -->
                 <div class="menu-item" onclick="voegToeAanBestelling('Pizza (alle soorten)', 6.00)">
                     <h3>Pizza (alle soorten)</h3>
+                    <p class="menu-description">Onze klassieke handgemaakte pizza met extra veel kaas. Vers uit de oven van Freddy zelf!</p>
                     <span class="price">€6,00</span>
                 </div>
+
+                <!-- Freddy Faz Cola -->
+                <div class="menu-item" onclick="voegToeAanBestelling('Freddy Faz Cola', 4.00)">
+                    <h3>Freddy Faz Cola</h3>
+                    <p class="menu-description">Een ijskoud, bruisend drankje om je energie op peil te houden tijdens de nachtdienst.</p>
+                    <span class="price">€4,00</span>
+                </div>
+
+                <!-- Patat -->
+                <div class="menu-item" onclick="voegToeAanBestelling('Patat', 5.00)">
+                    <h3>Patat</h3>
+                    <span class="price">€5,00</span>
+                    <p class="menu-description">Goudgele, knapperige frites. Pas op dat Foxy ze niet van je bord rooft!</p>
+                </div>
+
+                <!-- Poffertjes -->
                 <div class="menu-item" onclick="voegToeAanBestelling('Poffertjes', 11.00)">
                     <h3>Poffertjes</h3>
+                    <p class="menu-description">Een flinke portie Oud-Hollandse poffertjes met poedersuiker en een flinke klont gesmolten boter.</p>
                     <span class="price">€11,00</span>
                 </div>
+
+                <!-- Pannekoeken -->
+                <div class="menu-item" onclick="voegToeAanBestelling('Pannekoeken', 6.00)">
+                    <h3>Pannekoeken</h3>
+                    <p class="menu-description">Groot, rond en goudbruin gebakken. Lekker met stroop of suiker tijdens de show.</p>
+                    <span class="price">€6,00</span>
+                </div>
+
+                <!-- Foxy Ice Cream -->
+                <div class="menu-item" onclick="voegToeAanBestelling('Foxy Ice Cream', 3.00)">
+                    <h3>Foxy Ice Cream</h3>
+                    <p class="menu-description">Een ijskoud avontuur uit Pirate Cove! Gemaakt met bloedrode aardbeiensaus.</p>
+                    <span class="price">€3,00</span>
+                </div>
+
+                <!-- Chicas Cupcake -->
+                <div class="menu-item" onclick="voegToeAanBestelling('Chicas Cupcake', 6.00)">
+                    <h3>Chicas Cupcake</h3>
+                    <p class="menu-description">Inclusief de iconische roze frosting en oogjes. Geen zorgen, deze bijt (meestal) niet!</p>
+                    <span class="price">€6,00</span>
+                </div>
+
+                <!-- Golden Freddy Wafels -->
+                <div class="menu-item" onclick="voegToeAanBestelling('Golden Freddy Wafels', 6.00)">
+                    <h3>Golden Freddy Wafels</h3>
+                    <p class="menu-description">Een mysterieus goudbruine wafel. Verschijnt en verdwijnt sneller dan je denkt...</p>
+                    <span class="price">€6,00</span>
+                </div>
+
+                <!-- Rockstar Bonnie Brownies -->
+                <div class="menu-item" onclick="voegToeAanBestelling('Rockstar Bonnie Brownies', 7.00)">
+                    <h3>Rockstar Bonnie Brownies</h3>
+                    <p class="menu-description">Extreem volle, donkere chocoladebrownies die je smaakpapillen laten rocken!</p>
+                    <span class="price">€7,00</span>
+                </div>
+
             </div>
+
+            <!-- BESTELBOX -->
             <div id="order-box">
                 <h3>JOUW BESTELLING</h3>
                 <ul id="order-list"></ul>
                 <p>Totaal: <span id="order-total">€0,00</span></p>
             </div>
         </section>
-
         <!-- SECTIE 3: RESERVEREN -->
         <section id="reserveer">
             <h2>RESERVEREN</h2>
@@ -191,3 +264,8 @@
                 setTimeout(() => {
                     staticNoise.classList.remove('camera-glitch');
                 }, 250); // Duur
+            }
+        }
+    </script>
+</body>
+</html>
