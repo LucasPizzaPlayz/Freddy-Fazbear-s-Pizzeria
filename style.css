@@ -252,3 +252,58 @@ main input[type="radio"] {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* STYLING VOOR DE UPDATES & DEVLOG SECTIE */
+.update-card {
+    background-color: rgba(26, 26, 36, 0.85);
+    border: 3px dashed #ff0044;
+    padding: 25px;
+    text-align: left;
+    margin-top: 20px;
+    box-shadow: 0 0 15px rgba(255, 0, 68, 0.2);
+}
+
+.update-card h3 {
+    color: #ff0044;
+    font-size: 28px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.update-card .devlog-title {
+    color: #00ffcc;
+    margin: 15px 0 5px 0;
+    font-weight: bold;
+}
+
+.update-card ul {
+    list-style-type: square;
+    margin-left: 25px;
+    padding-left: 0;
+    color: #fff;
+}
+
+.update-card ul li {
+    margin-bottom: 8px;
+}
+
+.update-card ul li strong {
+    color: #f3af17;
+}
+
+.update-card .bug-notice {
+    margin-top: 20px;
+    font-style: italic;
+    color: #888;
+    font-size: 20px;
+}
+
+/* STYLING VOOR MENU BESCHRIJVINGEN */
+.menu-description {
+    margin: 5px 0 0 0;
+    color: #888;
+    font-size: 18px;
+    max-width: 80%;
+}
