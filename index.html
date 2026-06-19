@@ -18,7 +18,6 @@
     </header>
     <nav>
         <a href="#home" class="nav-button">Home</a>
-        <a href="#updates" class="nav-button">Updates</a>
         <a href="#menu" class="nav-button">Ons Menu</a>
         <a href="#reserveer" class="nav-button">Reserveren</a>
         <a href="#dieren" class="nav-button">Onze Dieren</a>
@@ -43,20 +42,7 @@
             </div>
             <a href="#jumpscare-overlay" class="secret-danger-btn">KLIK NIET OP DEZE KNOP</a>
         </section>
-        <!-- SECTIE: UPDATES & DEVLOG -->
-        <section id="updates">
-            <h2>LAATSTE UPDATES</h2>
-            <div class="update-card">
-                <h3>🚨 SYSTEM UPDATE: BETA V1.38</h3>
-                <p class="devlog-title">💻 Technische Highlights (DevLog):</p>
-                <ul>
-                    <li><strong>Live Camera Systeem:</strong> Schakelbare feeds gebouwd met HTML radio-buttons en JavaScript.</li>
-                    <li><strong>Dynamische Rekenaar:</strong> Prijzen in het menu worden automatisch via JavaScript opgeteld.</li>
-                    <li><strong>Event Trigger:</strong> Custom CSS overlay-koppeling gemaakt voor de Golden Freddy jumpscare.</li>
-                </ul>
-                <p class="bug-notice">*Bekende bug: De Power-indicator blijft momenteel haken op 100%. Fix volgt in V1.39.*</p>
-            </div>
-        </section>
+
         <!-- SECTIE 2: ONS MENU -->
         <section id="menu">
             <h2>FREDDY'S PIZZA MENU</h2>
@@ -81,6 +67,7 @@
                 </div>
             </div>
         </section>
+
         <!-- SECTIE 3: RESERVEREN -->
         <section id="reserveer">
             <h2>RESERVEREN</h2>
@@ -92,6 +79,7 @@
                 <button type="submit" class="submit-btn">Reserveer Tafel</button>
             </form>
         </section>
+
         <!-- SECTIE 4: ONZE DIEREN -->
         <section id="dieren">
             <h2>ONTMOET ONZE DIEREN</h2>
@@ -102,6 +90,7 @@
                 </div>
             </div>
         </section>
+
         <!-- SECTIE 5: INTERACTIEF BEVEILIGINGSSYSTEEM -->
         <section id="cameras">
             <h2>BEVEILIGINGSSYSTEEM</h2>
@@ -134,6 +123,7 @@
                 </div>
             </div>
         </section>
+
         <!-- GOLDEN FREDDY JUMPSCARE OVERLAY -->
         <a href="#home" id="jumpscare-overlay">
             <div class="jumpscare-wrapper">
@@ -142,44 +132,45 @@
             </div>
         </a>
     </main>
+
     <script>
         let totaalPrijs = 0;
         function voegToeAanBestelling(itemNaam, prijs) {
-        totaalPrijs += prijs;
-        const orderList = document.getElementById('order-list');
-        const orderTotal = document.getElementById('order-total');
-        if (orderList && orderTotal) {
-            const li = document.createElement('li');
-            li.textContent = itemNaam + " - €" + prijs.toFixed(2).replace('.', ',');
-            orderList.appendChild(li);
-            orderTotal.textContent = "€" + totaalPrijs.toFixed(2).replace('.', ',');
+            totaalPrijs += prijs;
+            const orderList = document.getElementById('order-list');
+            const orderTotal = document.getElementById('order-total');
+            if (orderList && orderTotal) {
+                const li = document.createElement('li');
+                li.textContent = itemNaam + " - €" + prijs.toFixed(2).replace('.', ',');
+                orderList.appendChild(li);
+                orderTotal.textContent = "€" + totaalPrijs.toFixed(2).replace('.', ',');
+            }
         }
-    }
-    function stuurBestellingAfronden() {
-        if (totaalPrijs === 0) {
-            alert('Je winkelwagen is nog leeg! Kies eerst wat lekkers uit het menu.');
-            return;
+        function stuurBestellingAfronden() {
+            if (totaalPrijs === 0) {
+                alert('Je winkelwagen is nog leeg! Kies eerst wat lekkers uit het menu.');
+                return;
+            }
+            alert('Je bestelling is afgerond! Het totale bedrag is €' + totaalPrijs.toFixed(2).replace('.', ',') + '. Fazbear Entertainment bedankt u voor uw aankoop... Geniet van de show!');
+            wisHeleBestelling();
         }
-        alert('Je bestelling is afgerond! Het totale bedrag is €' + totaalPrijs.toFixed(2).replace('.', ',') + '. Fazbear Entertainment bedankt u voor uw aankoop... Geniet van de show!');
-        wisHeleBestelling();
+function wisHeleBestelling() {
+    totaalPrijs = 0;
+    const orderList = document.getElementById('order-list');
+    const orderTotal = document.getElementById('order-total');
+    if (orderList && orderTotal) {
+        orderList.innerHTML = '';
+        orderTotal.textContent = '€0,00';
     }
-    function wisHeleBestelling() {
-        totaalPrijs = 0;
-        const orderList = document.getElementById('order-list');
-        const orderTotal = document.getElementById('order-total');
-        if (orderList && orderTotal) {
-            orderList.innerHTML = '';
-            orderTotal.textContent = '€0,00';
-        }
+}
+document.getElementById('booking-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Reservering succesvol ontvangen... als je durft te komen!');
+});
+function wisselCamera() {
+    const staticNoise = document.getElementById('camera-static');
+    if (staticNoise) {
+        staticNoise.classList.add('camera-glitch');
+        setTimeout(() => { staticNoise.classList.remove('camera-glitch'); }, 250);
     }
-    document.getElementById('booking-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Reservering succesvol ontvangen... als je durft te komen!');
-    });
-    function wisselCamera() {
-        const staticNoise = document.getElementById('camera-static');
-        if (staticNoise) {
-            staticNoise.classList.add('camera-glitch');
-            setTimeout(() => { staticNoise.classList.remove('camera-glitch'); }, 250);
-        }
-    }
+}
