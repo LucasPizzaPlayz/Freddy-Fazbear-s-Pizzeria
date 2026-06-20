@@ -200,7 +200,7 @@ main input[type="radio"] {
 .scanlines { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%); background-size: 100% 4px; z-index: 8; pointer-events: none; }
 .static-noise { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-radial-gradient(circle at 50% 50%, #fff, #000 2px); opacity: 0.08; z-index: 7; pointer-events: none; }
 
-/* Tijdelijke zware storing klasse */
+/* Tijdelijke zware storing klasse aangestuurd door JS */
 .camera-glitch {
     opacity: 0.85 !important;
     background: repeating-linear-gradient(0deg, #fff, #000 4px) !important;
@@ -222,43 +222,14 @@ main input[type="radio"] {
 .secret-danger-btn { background-color: #ff0044; color: white; font-family: 'VT323', monospace; font-size: 24px; border: none; padding: 15px 30px; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 40px; box-shadow: 4px 4px 0px #000; }
 .secret-danger-btn:hover { background-color: #b30030; }
 
-/* STYLING VOOR JUMPSCARE OVERLAY EN EFFECTEN */
-.hidden-jumpscare { 
+/* JUMPSCARE OVERLAY */
+#jumpscare-overlay { 
     display: none; 
     position: fixed; 
-    top: 0; left: 0; 
-    width: 100vw; height: 100vh; 
+    top: 0; left: 0; width: 100%; height: 100%; 
     background-color: #000; 
-    z-index: 9999; 
-    justify-content: center; 
-    align-items: center;
-    animation: red-flash 0.15s infinite;
-}
-
-.jumpscare-text {
-    color: #f3af17;
-    font-size: 8rem;
-    font-family: 'VT323', monospace;
-    font-weight: bold;
-    text-shadow: 0 0 20px red;
-    animation: shake 0.1s infinite;
-}
-
-/* Flits-effect voor de achtergrond */
-@keyframes red-flash {
-    0% { background-color: #000; }
-    50% { background-color: #ff0000; }
-    100% { background-color: #000; }
-}
-
-/* Trillend effect voor de tekst */
-@keyframes shake {
-    0% { transform: translate(2px, 2px) rotate(0deg); }
-    10% { transform: translate(-2px, -3px) rotate(-1deg); }
-    30% { transform: translate(0px, 3px) rotate(0deg); }
-    50% { transform: translate(2px, -2px) rotate(2deg); }
-    70% { transform: translate(-2px, 3px) rotate(-2deg); }
-    100% { transform: translate(2px, 2px) rotate(0deg); }
+    z-index: 999; 
+    text-decoration: none;
 }
 
 #jumpscare-overlay:target { 
